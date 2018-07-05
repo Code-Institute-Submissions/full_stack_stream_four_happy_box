@@ -24,7 +24,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__fil
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['full-stack-project-django-larkineva.c9users.io']
+ALLOWED_HOSTS = ['full-stack-project-django-larkineva.c9users.io','full-stack-nikral.herokuapp.com']
 
 
 # Application definition
@@ -36,8 +36,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_forms_bootstrap',
     'home',
     'storages',
+    'accounts',
 ]
 
 MIDDLEWARE = [
