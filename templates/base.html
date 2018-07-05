@@ -1,0 +1,55 @@
+{% load static from staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'css/custom.css'%}"> 
+    {% block head_js %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    {% endblock head_js %}
+
+    <title>Full Stack</title>
+</head>
+
+<body>
+<nav class="navbar navbar-masthead navbar-default">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/"><i class="fa fa-crown"></i></a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    {% if user.is_authenticated %}
+                        <li><a href="#"> Profile</a></li>
+                        <li><a href="#"> Products</a></li>
+                        <li><a href="#"> Log Out</a></li>
+                    {%  else %}
+                        <li><a href="#"> Register</a></li>
+                        <li><a href="#"> Log In</a></li>
+                    {% endif %}
+                    <li>
+                        <a href="#">
+                             Cart<label class="badge badge-warning"></label>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+ {% block content %}
+ 
+ {% endblock %}
+</body>
+
+</html>
