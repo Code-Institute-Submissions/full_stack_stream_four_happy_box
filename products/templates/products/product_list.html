@@ -1,0 +1,41 @@
+{% extends 'base.html' %} 
+{% load static from staticfiles %} 
+{% block content %}
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 text-center">
+            <h1>Products</h1>
+        </div>
+    </div>
+</div>
+
+
+<div class="row row-flex">
+    {% for product in products %}
+
+    <div class="col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-6 col-md-4 display panel panel-default">
+
+        <div class="panel-body">
+                <img src="{{product.image.url}}">
+
+            <h3>{{ product.name }}</h3>
+            <p class="product-description">{{ product.description }}</p>
+            <p>{{ product.price }}</p>
+
+
+            <form method="post" action="#">
+                {% csrf_token %}
+                <div class="input-group">
+                    <input name='quantity' type="number" min="1" max="999" class="form-control" placeholder="Quantity">
+                    <span class="input-group-btn">
+                            <button class="btn btn-success" type="submit">Add</button>
+                          </span>
+                </div>
+            </form>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
