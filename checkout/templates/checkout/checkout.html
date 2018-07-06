@@ -1,0 +1,82 @@
+{% extends 'base.html' %} 
+{% load static from staticfiles %} 
+{% load bootstrap_tags %} 
+
+{% block head_js %} 
+{{ block.super }}
+<script src="https://js.stripe.com/v2/" type="text/javascript"></script>
+<script type="text/javascript">
+    //<![CDATA[
+    Stripe.publishableKey = '{{ publishable }}';
+    //]]>
+</script>
+<script type="text/javascript" src="{% static 'checkout/stripe.js' %}"></script>
+
+
+{% endblock head_js %} 
+
+
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 text-center">
+            <h1>Checkout</h1>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    {% for item in cart_items %}
+    <div class="row">
+        <div class="col-xs-6">
+            <img src='{{ MEDIA_URL}}{{item.product.image}}' height='300px' width='250px'>
+        </div>
+
+        <div class="col-xs-6">
+            <h2>{{ item.product }}</h2>
+            <h4>Quantity:{{ item.quantity }}</h4>
+            <h4>Price: {{ item.product.price }}</h4>
+            <h4>Total: {{ item.total }}</h4>
+
+        </div>
+    </div>
+    <div class="col-xs-12">
+        <br>
+    </div>
+    {% endfor %}
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 text-center">
+                <h2><strong>Total Cart: € {{ total }}</strong></h2>
+                <a href="{% url 'checkout' %}" class="btn btn-success" role="button">Checkout</a>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<form role="form" method="post" id="payment-form" action="{% url 'checkout' %}">
+
+    <legend>Payment Details</legend>
+
+    <div id="credit-card-errors" style="display:none">
+        <div class="alert-message block-message error" id="stripe-error-message"></div>
+    </div>
+
+    <div class="form-group col-md-6">
+        {{ order_form|as_bootstrap }}
+    </div>
+
+    <div class="form-group col-md-6">
+        {{ payment_form|as_bootstrap }}
+    </div>
+
+    {% csrf_token %}
+    <div class="form-group col-md-12 text-center">
+        <input class="btn btn-primary" id="submit_payment_btn" name="commit" type="submit" value="Submit Payment">
+    </div>
+
+</form>
+
+{% endblock content %}
