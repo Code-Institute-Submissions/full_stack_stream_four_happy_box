@@ -35,6 +35,25 @@ class Product(models.Model):
         ordering = ('name', )
         index_together = (('id', 'slug'),)
 
+    @property
+    def average_rating(self):
+        if self.reviews_received.all():
+            average = self.reviews_received.all().aggregate(Avg('rating'))
+            n = average['rating__avg']
+            return float(round(n, 2))
+        else:
+            return 0
+        
+    @property
+    def stars(self):
+        return range(int(self.average_rating))
+        
+    @property 
+    def needs_half_star(self):
+        remainder = self.average_rating - int(self.average_rating)
+        return 0.4 < remainder
+
+
     def __str__(self):
         return self.name
 

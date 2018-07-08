@@ -21,6 +21,8 @@ from products import urls as products_urls
 from cart import urls as cart_urls
 from checkout import urls as checkout_urls
 from search import urls as search_urls
+from wishlist import urls as wishlist_urls
+from reviews import urls as reviews_urls
 from django.views.static import serve
 from django.conf import settings
 
@@ -32,5 +34,7 @@ urlpatterns = [
     path('cart/', include(cart_urls)),
     path('checkout/', include(checkout_urls)),
     path('search/', include(search_urls)),
+    path('wishlist/', include(wishlist_urls)),
+    path('reviews/', include(reviews_urls)),
     path('media/<path:path>', serve, {'document_root': settings.MEDIA_ROOT}),
 ]

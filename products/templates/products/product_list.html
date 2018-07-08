@@ -21,7 +21,7 @@
                 <form method="post" action="{% url 'add_to_cart' product.id %}">
                   {% csrf_token %}
                   <div class="input-group">
-                    <input name='quantity' type="number" min="1" max="999" class="form-control" placeholder="Quantity">
+                    <input name='quantity' type="number" min="1" max="999" class="form-control" value="1" placeholder="1">
                     <span class="input-group-btn">
                             <button class="btn btn-info" type="submit">Add to Cart</button>
                           </span>
@@ -29,7 +29,37 @@
                   <!-- /input-group -->
 
                 </form>
+                {% if not in_wishlist %}
+                <form class="inline product_hearts" action="{% url 'add_to_wishlist' %}?next={{request.path}}" method="post" id="empty_heart_form">
+                  {% csrf_token %}
+                  <input type="hidden" name="id" value="{{product.id}}" />
+                  <button type="submit" class="btn">
+            <i id="empty_heart_icon" class="far fa-heart fa-2x" type="submit"></i>
+          </button>
+                </form>
+                {% else %}
+                <form class="inline product_hearts" action="{% url 'remove_wishlist_item' product.id %}?next={{request.path}}" method="post" id="full_heart_form">
+                  {% csrf_token %}
+                  <button type="submit" class="btn">
+            <i id="full_heart_icon" class="fas fa-heart fa-2x" type="submit"></i>
+                    
+          </button>
+                </form>
+
+                {% endif %}
               </div>
+              <div class="ratings">
+        {% if product.reviews_received.all %} {% if product.reviews_received.all|length == 1 %}
+        <p class="pull-right">{{product.reviews_received.all|length}} review</p>
+        {% else %}
+        <p class="pull-right">{{product.reviews_received.all|length}} reviews</p>
+        {% endif %} {% endif %} {% if product.stars %} {% for star in product.stars %}
+        <i class="fas fa-star"></i> {% endfor %} {% if product.needs_half_star %}
+        <i class="fa fa-star-half"></i> {% endif %} {{product.average_rating}} avg rating {% else %}
+        <p><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>No reviews yet</p>
+        {% endif %}
+      </div>
+              
             </div>
           </div>
 
