@@ -20,7 +20,23 @@ def add_to_wishlist(request):
     request.session['wishlist'] = wishlist
     messages.success(request, "You added to your wishlist!")
     return redirect(request.GET.get('next', 'home'))
-    
+
+def add_selected_wishlist_items_to_cart(request):
+    id = request.POST['id']
+    if int(request.POST['quantity']) > 0:
+        quantity = int(request.POST['quantity'])
+    else:
+        quantity = 1
+        
+    cart = request.session.get('cart', {})
+    cart[id] = cart.get(id, 0) + quantity
+    request.session['cart'] = cart   
+    messages.success(request, "You added to your cart")
+    wishlist = request.session.get('wishlist', {})
+    del wishlist[id]
+    return redirect(request.GET.get('next', 'products'))
+
+
 def add_all_wishlist_items_to_cart(request):
     wishlist = request.session.get('wishlist', {})
     cart = request.session.get('cart', {})
@@ -29,10 +45,7 @@ def add_all_wishlist_items_to_cart(request):
         request.session['cart'] = cart
     messages.success(request, "You moved all your items from Wishlist to Cart")
     request.session['wishlist'] = {}
-        
     return redirect(request.GET.get('next', 'home'))
-    
-    
     
 def remove_wishlist_item(request, id):
     wishlist = request.session.get('wishlist', {})

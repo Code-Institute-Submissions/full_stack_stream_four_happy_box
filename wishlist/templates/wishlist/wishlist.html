@@ -18,7 +18,7 @@
     {% for product in wishlist_items %}
                     <div class="col-sm-4">
                         <div class="x_for_close">
-                                <form  method="post" action="{% url 'remove_wishlist_item' product.id%}?next={{request.path}}">
+                                <form  method="post" action="{% url 'remove_wishlist_item' product.product_id%}?next={{request.path}}">
                                     {% csrf_token %}
                                     <button type="submit"class="btn"><i class="far fa-times-circle fa-3x"></i></button>
                                 </form>
@@ -26,7 +26,7 @@
                                 
                         <div class="thumbnail">
 
-                            <a href="{% url 'product_detail' product.id %}">
+                            <a href="{% url 'product_detail' product.product_id %}">
                             <img src="{{product.image.url}}" alt="" height="400" width="300">
                             <div class="caption">
                                 <h4 class="pull-right">€{{product.price}}</h4>
@@ -36,11 +36,11 @@
                                 <p>{{product.description|truncatechars:20}}</p>
                             </div>
                 <div class="wishlist_items_form">
-                <form action="{% url 'add_to_cart' %}?next={{request.path}}" method="post">
+                <form action="{% url 'add_selected_wishlist_items_to_cart' %}?next={{request.path}}" method="post">
                   {% csrf_token %}
-                  <input  type="hidden" name="id" value="{{product.id}}"/>
+                  <input  type="hidden" name="id" value="{{product.product_id}}"/>
                   Quantity
-                  <input class="form-control quantity_form" type="number" name="quantity" value="1" max="5" min="1"/>
+                  <input class="form-control quantity_form" type="number" name="quantity" value="{{product.quantity}}" max="5" min="1"/>
                   <input class="btn btn-success" type="submit" value="Add To Cart"/>
                 </form>
                 </div>
