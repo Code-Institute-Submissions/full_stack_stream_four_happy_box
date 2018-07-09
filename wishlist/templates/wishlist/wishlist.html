@@ -36,7 +36,7 @@
                                 <p>{{product.description|truncatechars:20}}</p>
                             </div>
                 <div class="wishlist_items_form">
-                <form action="{% url 'add_to_cart' product.id %}?next={{request.path}}" method="post">
+                <form action="{% url 'add_to_cart' %}?next={{request.path}}" method="post">
                   {% csrf_token %}
                   <input  type="hidden" name="id" value="{{product.id}}"/>
                   Quantity

@@ -17,7 +17,9 @@ def product_detail(request, pk):
     form = ReviewForm()
     wishlist = request.session.get('wishlist', {})
     in_wishlist = id in wishlist
-    return render(request, 'products/product.detail.html', {'product':product, 'review_form': form, 'in_wishlist': in_wishlist})
+    return render(request, 'products/product_detail.html', {'product':product, 'review_form': form, 'in_wishlist': in_wishlist})
     
-
+def get_cat_products(request, category):
+    products = Product.objects.filter(category__name=category)
+    return render(request, 'products/product_list.html', {'products':products})
     

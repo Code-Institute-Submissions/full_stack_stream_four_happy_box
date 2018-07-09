@@ -1,48 +1,46 @@
-{% extends 'base.html' %} {% load static from staticfiles %} {% load bootstrap_tags %} {% block content %} {% if cart_items|length > 0 %}
-<div class="container">
+<div class="row cart_items">
+        <div class="col-sm-4">
+            <h3>Item</h3>
+        </div>
+        <div class="col-sm-2">
+            <h3>Price</h3>
+        </div>
+        <div class="col-sm-2">
+            <h3>Quantity</h3>
+        </div>
+        <div class="col-sm-2">
+            <h3>Total</h3>
+        </div>
+        <div class="col-sm-2">
+        </div>
+    </div>
     {% for item in cart_items %}
-
-    <div class="row">
-        <div class="col-xs-6">
-
-            <img src='{{ MEDIA_URL}}{{item.product.image}}'>
+        <div class="row cart_items">
+        <div class="col-sm-4">
+            <img height="100" width="100" src="{{ MEDIA_URL }}{{ item.image }}">
+            {{ item.name }}
+            
         </div>
-        <div class="col-xs-6">
-            <h3>{{ item.product.name }}</h3>
-            <p class="product-description">{{ item.product.description }}</p>
-            <p>{{ item.product.price }}</p>
-            <p>
-
-                <form class="form-inline" method="post" action="{% url 'adjust_cart' item.id %}">
+        <div class="col-sm-2">
+            <h4>€{{ item.price }}</h4>
+        </div>
+        <div class="col-sm-2">
+            <form method="post" action="{% url 'adjust_cart' item.product_id %}">
+                {% csrf_token %}
+                <input class="form-control quantity_form" name='quantity' type="number" value="{{item.quantity}}" min="0" max="5">
+                <button class="btn btn-warning" type="submit">Adjust</button>
+            </form>
+        </div>
+        <div class="col-sm-2">
+            <h4>€{{item.total}}</h4>
+        </div>
+        <div class="col-sm-2">
+            <br>
+                <form  method="post" action="{% url 'remove_from_cart' item.product_id %}?next={{request.path}}">
                     {% csrf_token %}
-                    <div class="form-group">
-                        <label for="exampleInputAmount" class="sr-only">New Qty</label>
-                        <div class="input-group">
-                            <div class="input-group-addon">Qty</div>
-                            <input name="quantity" type="number" min="0" max="999" class="form-control">
-                            <div class="input-group-addon">{{item.quantity}}</div>
-                        </div>
-                    </div>
-                    <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span>Amend</button>
+                    <button type="submit"class="btn"><i class="far fa-times-circle fa-2x"></i></button>
                 </form>
-            </p>
-        </div>
-    </div>
 
-    <div class="col-xs-12">
-        <br>
-    </div>
-    {% endfor %}
-</div>
-<div class="container">
-    <div class="row">
-        <div class="col-xs-12 text-center">
-            <p>Total</p>
-            <p><span class="glyphicon glyphicon-euro" aria-hidden="true"></span>{{ total }}</p>
-            <a href="{% url 'checkout' %}" class="btn btn-success" role="button"><span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span>Checkout</a>
         </div>
-    </div>
-</div>
-{% else %}
-<p>Your cart is empty, go buy something.</p>
-{% endif %} {% endblock %}
+        </div>
+    {% endfor %}
