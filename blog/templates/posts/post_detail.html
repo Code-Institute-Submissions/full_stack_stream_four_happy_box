@@ -3,9 +3,6 @@
 {% block content %}
     <div class="row">
         <div class="col-md-2 col-sm-3 text-center">
-            <a class="story-img" href="#">
-                <img src="{{ MEDIA_URL}}avatars/{{post.author.username}}.jpg" class="img-circle">
-            </a>
             <p><span class="boldtext">Author:</span> {{ post.author }}</p>
         </div>
         <div class="col-sm-10 col-md-9">
@@ -19,7 +16,6 @@
                     <p><span class="boldtext">Published on:</span> {{ post.published_date }} </p>
                     <p><span class="boldtext">Views:</span> {{post.views}}</p>
                     <p><span class="boldtext">Tag:</span> {{ post.tag }}</p>
-                    <p><span class="boldtext">Likes:</span> {{post.likes.all | length}}</p>
                     <a href="{% url 'get_posts' %}" class="btn btn-default">Back to Blog</a>
                     
                     {% if user ==  post.author or user.is_superuser %}
@@ -30,4 +26,24 @@
             </div>
         </div>
     </div>
+    
+    <hr>
+    <a class="btn btn-default" href="{% url 'add_comment_to_post' pk=post.pk %}">Add comment</a>
+{% for comment in post.comments.all %}
+    {% if comment.approved_comment or user.is_superuser%}
+    <div class="comment">
+        <div class="date">
+            {{ comment.created_date }}
+            {% if not comment.approved_comment %}
+                <a class="btn btn-default" href="{% url 'comment_remove' pk=comment.pk %}"><span class="glyphicon glyphicon-remove"></span></a>
+                <a class="btn btn-default" href="{% url 'comment_approve' pk=comment.pk %}"><span class="glyphicon glyphicon-ok"></span></a>
+            {% endif %}
+        </div>
+        <strong>{{ comment.author }}</strong>
+        <p>{{ comment.text|linebreaks }}</p>
+    </div>
+    {% endif %}
+{% empty %}
+    <p>No comments here yet :(</p>
+{% endfor %}
 {% endblock %}

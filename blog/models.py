@@ -14,7 +14,24 @@ class Post(models.Model):
     tag = models.CharField(max_length=30, blank=True, null=True)
     image = models.ImageField(upload_to="images", blank=True, null=True)
     author = models.ForeignKey(User, related_name= 'posts', null=False, default=1, on_delete=models.SET_DEFAULT)
-    likes = models.ManyToManyField(User, related_name='liked_posts')
+    
+    def approved_comments(self):
+        return self.comments.filter(approved_comment=True)
     
     def __str__(self):
         return self.title
+        
+
+class Comment(models.Model):
+    post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='comments')
+    author = models.ForeignKey(User, related_name= 'comments', null=False, default=1, on_delete=models.SET_DEFAULT)
+    text = models.TextField()
+    created_date = models.DateTimeField(default=timezone.now)
+    approved_comment = models.BooleanField(default=False)
+
+    def approve(self):
+        self.approved_comment = True
+        self.save()
+
+    def __str__(self):
+        return self.text
