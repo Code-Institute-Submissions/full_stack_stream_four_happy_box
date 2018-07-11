@@ -2,15 +2,17 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-sm-8">
-    {% for product in products %}
+     {% for product in products %}
+    
     <div class="col-sm-4 col-lg-4 col-md-4">
+      <h4>{{product.name}}
+            </h4>
       <a href="{% url 'product_detail' product.id %}">
         <div class="thumbnail">
           <img src="{{product.image.url}}" alt="" height="400" width="300">
           <div class="caption">
             <h4 class="pull-right">€{{product.price}}</h4>
-            <h4>{{product.name}}
-            </h4>
+            
       </a>
       <div class="btn btn-default">
         <form method="post" action="{% url 'add_to_cart' %}?next={{request.path}}">

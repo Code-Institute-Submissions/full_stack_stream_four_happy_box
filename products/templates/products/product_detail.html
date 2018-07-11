@@ -6,8 +6,8 @@
   <div class="row prod_desc">
     <div class=col-sm-8>
       <div class="col-sm-3">
-        {% for image in product_images %}
-            <img width="70%" class="card-img-top img-fluid" src="{{MEDIA_URL}}{{image.image}}" alt=""><br>
+        {% for simage in images %}
+            <img width="70%" class="card-img-top img-fluid" src="{{product.image.url}}" alt=""><br>
         {% endfor %}
       </div>
       <div class="col-sm-9">

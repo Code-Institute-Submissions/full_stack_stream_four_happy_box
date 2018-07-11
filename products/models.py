@@ -29,7 +29,7 @@ class Product(models.Model):
     description = models.TextField(blank=True)
     brand = models.CharField(max_length=50, default='')
     price = models.DecimalField(max_digits=6, decimal_places=2)
-    image = models.ImageField(upload_to='images')
+    image = models.ImageField(upload_to='images', default=None)
     
     class Meta:
         ordering = ('name', )
@@ -60,3 +60,13 @@ class Product(models.Model):
     # def get_absolute_url(self):
     #     return reverse('products:product_detail', args=[self.id, self.slug])
    
+ 
+
+
+class Image(models.Model):
+    name = models.CharField(blank=True,max_length=20)
+    product = models.ForeignKey(Product, related_name='product_images', default=None, on_delete=models.CASCADE)
+    image = models.ImageField(upload_to='images', blank=True)
+    
+    def __str__(self):
+        return self.name
