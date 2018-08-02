@@ -1,5 +1,65 @@
-.comment {
-    margin: 20px 0px 20px 20px;
+body {
+    font-family: 'Roboto', sans-serif;
+
+}
+
+/*Navigation*/
+.logo {
+    font-family: 'Bungee Shade', cursive;
+    font-size: 40px;
+    text-align: center;
+    color: #FC0FC0;
+}
+
+a:hover.logo {
+   text-decoration: none;
+}
+
+.navbar-default .navbar-brand {
+      font-family: 'Bungee Shade', cursive;  
+      color: #FC0FC0;
+}
+
+.form-control {
+    border: 0;
+    box-shadow: none;
+    -webkit-box-shadow: 0;
+}
+
+.shipping-head {
+    background-color:#01ACBD;
+    color:#ffffff;
+    line-height: 2;
+}
+
+
+.home {
+    background-image: url(/media/images/home.jpeg);
+    background-repeat: no-repeat;
+    background-size: auto;
+    background-position: center center;
+    color: white;
+    height: 650px;
+   
+}
+/*------------------------------------------*/
+/*Media Queries*/
+
+@media screen and (min-width: 768px) {
+    .navbar-default {
+        background: transparent;
+        border: none;
+        width: 100%;
+        text-align: center;
+       
+        
+    }
+    
+    .navbar-default li {
+        float: none;
+          display: inline-block;
+    }
+
 }
 
 

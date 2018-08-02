@@ -2,12 +2,12 @@
 {% load static from staticfiles %}
 {% block content %}
     {% for post in posts %}
+    <div class="container">
         <div class="row">
             <div class="col-md-2 col-sm-3 text-center">
                 <a class="story-img" href="#">
-                    <img src="{{MEDIA_URL}}{{ post.image }}" width=50px height=50px>
+                    <img class="img-responsive" src="{{MEDIA_URL}}{{ post.image }}" width=250px height=150px>
                 </a>
-                <p class="author"><span class="boldtext">Author:</span> {{ post.author }}</p>
             </div>
             <div class="col-md-10 col-sm-9">
                 <h3>{{ post.title }}</h3>
@@ -23,6 +23,7 @@
                 </div>
             </div>
             <hr>
+        </div>
         </div>
     {% endfor %}
 {% endblock %}

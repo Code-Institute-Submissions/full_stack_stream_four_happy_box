@@ -1,9 +1,16 @@
+
 {% extends 'base.html' %} 
+{% load static from staticfiles %}
 {% block content %}
 <div class="container">
     <div class="row">
-        <div class="col-xs-12 text-center">
-            <p>App Running!</p>
+        <div class="col-sm-12 text-center home hidden-xs">
+            
+            <h2></h2>
+           
+        </div>
+        <div class="col-xs12 hidden-sm hidden-md hidden-lg">
+            <img src="{{ MEDIA_URL}}images/home.jpeg" class="img-responsive">
         </div>
     </div>
 </div>
