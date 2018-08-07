@@ -23,6 +23,7 @@ from checkout import urls as checkout_urls
 from search import urls as search_urls
 from wishlist import urls as wishlist_urls
 from reviews import urls as reviews_urls
+from contact import urls as contact_urls
 from blog import urls as blog_urls
 from django.views.static import serve
 from django.conf import settings
@@ -37,6 +38,7 @@ urlpatterns = [
     path('search/', include(search_urls)),
     path('wishlist/', include(wishlist_urls)),
     path('reviews/', include(reviews_urls)),
+    path('contact/', include(contact_urls)),
     path('blog/', include(blog_urls)),
     path('media/<path:path>', serve, {'document_root': settings.MEDIA_ROOT}),
 ]

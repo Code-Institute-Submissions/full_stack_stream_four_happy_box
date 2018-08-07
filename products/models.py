@@ -27,8 +27,8 @@ class Product(models.Model):
     name = models.CharField(max_length=254, db_index=True, default='')
     slug = models.SlugField(max_length=100, db_index=True)
     description = models.TextField(blank=True)
-    brand = models.CharField(max_length=50, default='')
     price = models.DecimalField(max_digits=6, decimal_places=2)
+    cover_image_name = models.CharField(max_length=50, default='')
     image = models.ImageField(upload_to='images', default=None)
     
     class Meta:

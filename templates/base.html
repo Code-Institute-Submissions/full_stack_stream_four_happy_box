@@ -29,6 +29,7 @@
             </div>
         </div>
     </div>
+
     <header role="banner">
         <a class="logo text-center center-block hidden-xs" href="/">Happy Box</a>
 
@@ -46,43 +47,56 @@
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav navbar-default">
 
-                        <li><a href="{% url 'all_products' %}"> ALL</a></li>
-                        <li><div class="dropdown">
-                            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                                CATEGORIES
+                        
+                        <li>
+                            <div class="dropdown">
+                                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                SHOP
                                 <span class="caret"></span>
       </button>
-                            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                                {% for category in categories %}
-                                <li><a href="{% url 'categories' category %}">{{category}}</a></li>
-                                {% endfor %}
-                            </ul>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                                    <li><a href="{% url 'all_products' %}"> ALL BOXES</a></li>
+                                    {% for category in categories %}
+                                    <li><a href="{% url 'categories' category %}">{{category}}</a></li>
+                                    {% endfor %}
+                                </ul>
+                        </li>
+                         <li><a href="#"> ABOUT</a></li>
+                         <li><a href="#"> CONTACT</a></li>
+                        <li><a href="{% url 'get_posts' %}">BLOG</a></li>
+                        <li><a href="{% url 'contact' %}">CONTACT</a></li>
+                        
+                         <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-user"></span>My Account
+                            <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                        
+                        {% if user.is_authenticated %}
+                        <li><a href="{% url 'profile' %}"><i class="far fa-user"></i> Profile</a></li>
+                        <li><a href="{% url 'logout' %}"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+                        {% else %}
+                        <li><a href="{% url 'register' %}"><i class="fas fa-user-plus"></i> Sign Up</a></li>
+                        <li><a href="{% url 'login' %}"><i class="fas fa-sign-in-alt"></i> Login</a></li>
+                        {% endif %}
+                        </ul>
                             </li>
-                            <li><a href="{% url 'get_posts' %}"> BLOG</a></li>
-                            {% if user.is_authenticated %}
-                            <li><a href="{% url 'profile' %}"><i class="far fa-user"></i> Profile</a></li>
-                            <li><a href="{% url 'logout' %}"><i class="fas fa-sign-out-alt"></i> Log Out</a></li>
-                            {% else %}
-                            <li><a href="{% url 'register' %}"><i class="fas fa-user-plus"></i> Sign Up</a></li>
-                            <li><a href="{% url 'login' %}"><i class="fas fa-sign-in-alt"></i> Log In</a></li>
-                            {% endif %}
-                            <li><a href="{% url 'view_cart' %}">
-                             <i class="fas fa-shopping-bag"></i> Cart
+                        <li><a href="{% url 'view_cart' %}">
+                             <i class="fas fa-shopping-bag"></i>
                             {% if product_count > 0 %}
                             <label class="badge">{{ product_count }}</label>
                             {% endif %}
                         </a>
-                            </li>
-                            <li><a href="{% url 'view_wishlist' %}"><i class="fas fa-heart"></i> WishList
+                        </li>
+                        <li><a href="{% url 'view_wishlist' %}"><i class="fas fa-heart"></i>
                     {% if items_in_wishlist %}
-                    <span class="badge item_badge">{{items_in_wishlist}}</span>
+                    <span class="badge item_badge"><i class="fas fa-heart">{{items_in_wishlist}}</i></span>
                     {% endif %}</a></li>
-                            <li>
-                                <form class="form-inline search" action="{% url 'search' %}" method="get">
-                                    <i class="fas fa-search"></i><input class="form-control" type="search" name="q" placeholder="Search" aria-label="Search">
-                                    <button class="btn hidden" type="submit"></button>
-                                </form>
-                            </li>
+                        <li>
+                            <form class="form-inline search" action="{% url 'search' %}" method="get">
+                                <i class="fas fa-search"></i><input class="form-control" type="search" name="q" placeholder="Search" aria-label="Search">
+                                <button class="btn hidden" type="submit"></button>
+                            </form>
+                        </li>
                     </ul>
                     </div>
                 </div>

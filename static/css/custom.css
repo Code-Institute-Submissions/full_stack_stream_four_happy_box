@@ -42,6 +42,27 @@ a:hover.logo {
     height: 650px;
    
 }
+
+/* Product Detail*/
+
+.wish_button {
+    background-color: #ffffff;
+}
+
+.cart_button {
+    border: solid #FC0FC0;
+    border-radius: 0%;
+    background-color: #ffffff;
+    color:#FC0FC0;
+}
+
+.cart_button:hover {
+    border: solid #FC0FC0;
+    border-radius: 0%;
+    background-color: #FC0FC0;
+    color: #ffffff;
+}
+
 /*------------------------------------------*/
 /*Media Queries*/
 
