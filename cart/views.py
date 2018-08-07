@@ -21,9 +21,10 @@ def add_to_cart(request):
         quantity = int(request.POST['quantity'])
     else:
         quantity = 1
-        
+    
     cart = request.session.get('cart', {})
-    cart[id] = cart.get(id, 0) + quantity
+    cart[id] = cart.get(id, 0) + quantity + note
+
     request.session['cart'] = cart   
     messages.success(request, "You added to your cart")
     return redirect(request.GET.get('next', 'products'))
@@ -38,9 +39,7 @@ def remove_from_cart(request, id):
 
 def adjust_cart(request, id):
     cart = request.session.get('cart', {})
-    
     quantity = int(request.POST['quantity'])
-    
     if quantity > 0:
         cart[id] = quantity
     else:

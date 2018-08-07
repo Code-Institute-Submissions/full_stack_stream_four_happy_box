@@ -31,8 +31,50 @@
     </div>
 
     <header role="banner">
-        <a class="logo text-center center-block hidden-xs" href="/">Happy Box</a>
+        <div class="container">
+            <div class="row">
+                <div class="hidden-xs col-sm-4 search-align">
 
+                    <form class="form-inline search" action="{% url 'search' %}" method="get">
+                        <i class="fas fa-search"></i><input class="form-control search_box" type="search" name="q" placeholder="Search" aria-label="Search">
+                        <button class="btn hidden" type="submit"></button>
+                    </form>
+
+                </div>
+                <div class="hidden-xs col-sm-4 text-center">
+                    <a class="logo" href="/">Happy Box</a>
+                </div>
+                <div class="hidden-xs col-sm-4 account-top">
+                    <ul>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-user"></span> Account
+                            <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+
+                                {% if user.is_authenticated %}
+                                <li><a href="{% url 'profile' %}"><i class="far fa-user"></i> Profile</a></li>
+                                <li><a href="{% url 'logout' %}"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+                                {% else %}
+                                <li><a href="{% url 'register' %}"><i class="fas fa-user-plus"></i> Sign Up</a></li>
+                                <li><a href="{% url 'login' %}"><i class="fas fa-sign-in-alt"></i> Login</a></li>
+                                {% endif %}
+                            </ul>
+                        </li>
+                        <li><a href="{% url 'view_cart' %}">
+                             <i class="fas fa-shopping-bag"></i>
+                            {% if product_count > 0 %}
+                            <label class="badge">{{ product_count }}</label>
+                            {% endif %}
+                        </a>
+                        </li>
+                        <li><a href="{% url 'view_wishlist' %}"><i class="fas fa-heart"></i>
+                    {% if items_in_wishlist %}
+                    <span class="badge item_badge"><i class="fas fa-heart">{{items_in_wishlist}}</i></span>
+                    {% endif %}</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
         <nav class="navbar navbar-masthead navbar-default">
             <div class="container">
                 <div class="navbar-header">
@@ -42,12 +84,41 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                    <a class="navbar-brand text-center hidden-sm hidden-md hidden-lg" href="/">Happy Box</a>
+                    <a class="navbar-brand hidden-sm hidden-md hidden-lg" href="/">Happy Box</a>
                 </div>
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav navbar-default">
+                        <li class="dropdown hidden-sm hidden-md hidden-lg">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-user"></span> Account
+                            <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
 
-                        
+                                {% if user.is_authenticated %}
+                                <li><a href="{% url 'profile' %}"><i class="far fa-user"></i> Profile</a></li>
+                                <li><a href="{% url 'logout' %}"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+                                {% else %}
+                                <li><a href="{% url 'register' %}"><i class="fas fa-user-plus"></i> Sign Up</a></li>
+                                <li><a href="{% url 'login' %}"><i class="fas fa-sign-in-alt"></i> Login</a></li>
+                                {% endif %}
+                            </ul>
+                        </li>
+                        <li class="hidden-sm hidden-md hidden-lg"><a href="{% url 'view_cart' %}">
+                             <i class="fas fa-shopping-bag"></i> Cart
+                            {% if product_count > 0 %}
+                            <label class="badge">{{ product_count }}</label>
+                            {% endif %}
+                        </a>
+                        </li>
+                        <li class="hidden-sm hidden-md hidden-lg"><a href="{% url 'view_wishlist' %}"><i class="fas fa-heart"></i> Wishlist
+                    {% if items_in_wishlist %}
+                    <span class="badge item_badge"><i class="fas fa-heart">{{items_in_wishlist}}</i></span>
+                    {% endif %}</a></li>
+                        <li class="hidden-sm hidden-md hidden-lg">
+                            <form class="form-inline search" action="{% url 'search' %}" method="get">
+                                <i class="fas fa-search"></i><input class="form-control" type="search" name="q" placeholder="Search" aria-label="Search">
+                                <button class="btn hidden" type="submit"></button>
+                            </form>
+                        </li>
                         <li>
                             <div class="dropdown">
                                 <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
@@ -61,42 +132,9 @@
                                     {% endfor %}
                                 </ul>
                         </li>
-                         <li><a href="#"> ABOUT</a></li>
-                         <li><a href="#"> CONTACT</a></li>
+                        <li><a href="#"> ABOUT</a></li>
+                         <li><a href="{% url 'contact' %}">CONTACT</a></li>
                         <li><a href="{% url 'get_posts' %}">BLOG</a></li>
-                        <li><a href="{% url 'contact' %}">CONTACT</a></li>
-                        
-                         <li class="dropdown">
-                            <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-user"></span>My Account
-                            <span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                        
-                        {% if user.is_authenticated %}
-                        <li><a href="{% url 'profile' %}"><i class="far fa-user"></i> Profile</a></li>
-                        <li><a href="{% url 'logout' %}"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
-                        {% else %}
-                        <li><a href="{% url 'register' %}"><i class="fas fa-user-plus"></i> Sign Up</a></li>
-                        <li><a href="{% url 'login' %}"><i class="fas fa-sign-in-alt"></i> Login</a></li>
-                        {% endif %}
-                        </ul>
-                            </li>
-                        <li><a href="{% url 'view_cart' %}">
-                             <i class="fas fa-shopping-bag"></i>
-                            {% if product_count > 0 %}
-                            <label class="badge">{{ product_count }}</label>
-                            {% endif %}
-                        </a>
-                        </li>
-                        <li><a href="{% url 'view_wishlist' %}"><i class="fas fa-heart"></i>
-                    {% if items_in_wishlist %}
-                    <span class="badge item_badge"><i class="fas fa-heart">{{items_in_wishlist}}</i></span>
-                    {% endif %}</a></li>
-                        <li>
-                            <form class="form-inline search" action="{% url 'search' %}" method="get">
-                                <i class="fas fa-search"></i><input class="form-control" type="search" name="q" placeholder="Search" aria-label="Search">
-                                <button class="btn hidden" type="submit"></button>
-                            </form>
-                        </li>
                     </ul>
                     </div>
                 </div>

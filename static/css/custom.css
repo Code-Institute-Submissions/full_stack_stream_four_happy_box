@@ -13,6 +13,7 @@ body {
 
 a:hover.logo {
    text-decoration: none;
+   color: #FC0FC0;
 }
 
 .navbar-default .navbar-brand {
@@ -20,7 +21,26 @@ a:hover.logo {
       color: #FC0FC0;
 }
 
-.form-control {
+.search-align {
+  padding-top: 23px;
+}
+
+.account-top {
+    padding-top: 37px;
+    text-align: right;
+}
+
+.account-top ul{
+    margin-bottom: 0px;
+}
+.account-top li {
+    display: inline-block;
+    text-decoration: none;
+    padding-right: 15px;
+    
+}
+
+.search_box {
     border: 0;
     box-shadow: none;
     -webkit-box-shadow: 0;
@@ -63,6 +83,35 @@ a:hover.logo {
     color: #ffffff;
 }
 
+/* Contact */
+
+.header_image {
+    background-image: url(https://beemoorwi.files.wordpress.com/2017/01/cup-1574446_1280.png);
+    height:600px;
+    background-position: center center;
+    background-size:cover;
+}
+
+.contact_form h4{
+    text-align: center;
+}
+
+.contact_button {
+    border: solid #01ACBD;
+    border-radius: 0%;
+    background-color: #ffffff;
+    color:#01ACBD;
+  
+}
+
+.contact_button:hover {
+    border: solid #01ACBD;
+    border-radius: 0%;
+    background-color: #01ACBD;
+    color: #ffffff;
+}
+
+
 /*------------------------------------------*/
 /*Media Queries*/
 
@@ -72,15 +121,12 @@ a:hover.logo {
         border: none;
         width: 100%;
         text-align: center;
-       
-        
     }
     
     .navbar-default li {
         float: none;
-          display: inline-block;
+        display: inline-block;
     }
-
 }
 
 
