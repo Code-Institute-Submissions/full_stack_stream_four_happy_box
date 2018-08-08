@@ -111,6 +111,13 @@ a:hover.logo {
     color: #ffffff;
 }
 
+/* About */
+.about_header_image {
+    background-image: url(/media/images/about.jpg);
+    height:700px;
+    background-position: center center;
+    background-size:cover;
+}
 
 /*------------------------------------------*/
 /*Media Queries*/

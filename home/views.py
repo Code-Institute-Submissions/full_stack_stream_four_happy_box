@@ -5,3 +5,6 @@ from products.models import Product
 
 def get_index(request):
     return render(request, "home/index.html")
+    
+def get_about(request):
+    return render(request, "home/about.html")

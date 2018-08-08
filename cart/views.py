@@ -21,10 +21,17 @@ def add_to_cart(request):
         quantity = int(request.POST['quantity'])
     else:
         quantity = 1
+        
+    if int(request.POST['card']) > 0:
+        card = int(request.POST['card'])
+    else:
+        card = 1
     
+    print(card)
     cart = request.session.get('cart', {})
-    cart[id] = cart.get(id, 0) + quantity + note
-
+    cart[id] = cart.get(id, 0) + quantity
+   
+    print(cart)
     request.session['cart'] = cart   
     messages.success(request, "You added to your cart")
     return redirect(request.GET.get('next', 'products'))
