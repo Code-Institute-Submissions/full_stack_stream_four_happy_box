@@ -8,7 +8,7 @@ from .utils import get_cart_items_and_total
 
 def view_cart(request):
     cart=request.session.get('cart', {})
-    
+    print(cart)
     if len(cart) == 0:
        return render(request, "cart/empty_cart.html")
     context = get_cart_items_and_total(cart)

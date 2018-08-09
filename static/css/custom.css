@@ -54,14 +54,22 @@ a:hover.logo {
 
 
 .home {
-    background-image: url(/media/images/home.jpeg);
-    background-repeat: no-repeat;
-    background-size: auto;
-    background-position: center center;
-    color: white;
-    height: 650px;
-   
+    padding: 0;
 }
+
+.container .jumbotron {
+    padding: 0;
+    margin: 0;
+    border-radius: 0;
+    background-color: #FC0FC0;
+    color: #ffffff;
+    
+}
+
+.home-cta {
+    color: #ffffff;
+}
+
 
 /* Product Detail*/
 
@@ -117,6 +125,40 @@ a:hover.logo {
     height:700px;
     background-position: center center;
     background-size:cover;
+}
+
+.overlay-text {
+  font-size:3.5vw;
+  float:right;
+  width:65%; /*important*/
+  bottom:12vw; /*important*/
+  padding: 25px;
+  background:hotpink;
+}
+
+footer {
+    padding: 20px;
+    background-color:#01ACBD;
+    color: #ffffff;
+}
+
+ul.unstyled {
+    list-style: none;
+    padding-left: 0;
+
+}
+
+ul.unstyled li {
+    display: inline-block;
+    padding-right: 20px;
+
+
+}
+
+ul.unstyled li a {
+    color: #ffffff;
+
+
 }
 
 /*------------------------------------------*/

@@ -1,75 +1,58 @@
-{% extends 'base.html' %} {% load static from staticfiles %} {% block title %} {% endblock %} {% block content %}
+{% extends 'base.html' %} {% load static from staticfiles %} {% block content %}
 <div class="container">
   <div class="row">
     <div class="col-xs-12">
-     {% for product in products %}
-    
-    <div class="col-xs-4">
-      <h4>{{product.name}}
-            </h4>
-      <a href="{% url 'product_detail' product.id %}">
-        <div class="thumbnail">
-          <img src="{{product.image.url}}" alt="" height="400" width="300">
-          <div class="caption">
-            <h4 class="pull-right">€{{product.price}}</h4>
-            
-      </a>
-      
-        <form method="post" action="{% url 'add_to_cart' %}?next={{request.path}}">
-          <input type="hidden" name="id" value="{{product.id}}" />
-          <input type="hidden" name="quantity" value="1" /> 
-          <select name="card" class="card">
-                                <option value="1" type="number">You Deserve It</option>
-                                  <option value="2" type="number">The Only Way Is Up</option>
-                                    <option value="3" type="number">Thinking Of You</option>
-                                    <option value="4" type="number">Happy Birthday</option>
-                                    <option value="5" type="number">Bon Voyage</option>
-                                    <option value="6" type="number">Get Well Soon</option>
-                                </select>
+      {% for product in products %}
+      <div class="col-xs-12 col-sm-4">
+        <h4>{{product.name}}</h4>
+        <a href="{% url 'product_detail' product.id %}">
+          <div class="thumbnail">
+            <img src="{{product.image.url}}" alt="" height="400" width="300">
+            <div class="caption">
+              <h4>€{{product.price}}</h4>
+        </a>
+
+        <p class="inline">{{product.description|truncatechars:20}}</p>
+        {% if not in_wishlist %}
+
+        <form class="inline product_hearts" action="{% url 'add_to_wishlist' %}?next={{request.path}}" method="post" id="empty_heart_form">
           {% csrf_token %}
-           <input class="btn cart_button" type="submit" value="Add To Cart" />
-        </form>
-     
-      <p class="inline">{{product.description|truncatechars:20}}</p>
-      {% if not in_wishlist %}
-      <form class="inline product_hearts" action="{% url 'add_to_wishlist' %}?next={{request.path}}" method="post" id="empty_heart_form">
-        {% csrf_token %}
-        <input type="hidden" name="id" value="{{product.id}}" />
-         <button type="submit" class="btn">
+          <input type="hidden" name="id" value="{{product.id}}" />
+          <button type="submit" class="btn">
             <i class="far fa-heart" type="submit"></i>
           </button>
-      </form>
-      {% else %}
-      <form class="inline product_hearts" action="{% url 'remove_wishlist_item' product.id %}?next={{request.path}}" method="post" id="full_heart_form">
-        {% csrf_token %}
-        <button type="submit" class="btn">
+        </form>
+        {% else %}
+        <form class="inline product_hearts" action="{% url 'remove_wishlist_item' product.id %}?next={{request.path}}" method="post" id="full_heart_form">
+          {% csrf_token %}
+          <button type="submit" class="btn">
             <i id="full_heart_icon" class="fas fa-heart fa-2x" type="submit"></i>
           </button>
-      </form>
+        </form>
 
-      {% endif %}
-
-      </div>
-      <div class="ratings">
-        {% if product.reviews_received.all %} {% if product.reviews_received.all|length == 1 %}
-        <p class="pull-right">{{product.reviews_received.all|length}} review</p>
-        {% else %}
-        <p class="pull-right">{{product.reviews_received.all|length}} reviews</p>
-        {% endif %} {% endif %} {% if product.stars %} {% for star in product.stars %}
-        <i class="fas fa-star"></i> {% endfor %} {% if product.needs_half_star %}
-        <i class="fa fa-star-half"></i> {% endif %} {{product.average_rating}} avg rating {% else %}
-        <p><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>No reviews yet</p>
         {% endif %}
-      </div>
-      </div>
 
-    </div>
-    {% endfor %}
+        </div>
+        <div class="ratings">
+          {% if product.reviews_received.all %} {% if product.reviews_received.all|length == 1 %}
+          <p class="pull-right">{{product.reviews_received.all|length}} review</p>
+          {% else %}
+          <p class="pull-right">{{product.reviews_received.all|length}} reviews</p>
+          {% endif %} {% endif %} {% if product.stars %} {% for star in product.stars %}
+          <i class="fas fa-star"></i> {% endfor %} {% if product.needs_half_star %}
+          <i class="fa fa-star-half"></i> {% endif %} {{product.average_rating}} avg rating {% else %}
+          <p><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>No reviews yet</p>
+          {% endif %}
+        </div>
         </div>
 
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
 
-    
-    
 
-   
-{% endblock %}
+
+
+{% endblock content %}

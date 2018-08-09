@@ -1,19 +1,55 @@
+{% extends 'base.html' %} {% load static from staticfiles %} {% block content %}
 
-{% extends 'base.html' %} 
-{% load static from staticfiles %}
-{% block content %}
+
+
 <div class="container">
     <div class="row">
-        <div class="col-sm-12 text-center home hidden-xs">
-            
-            <h2></h2>
-           
+        <div class="col-xs-12 jumbotron">
+            <a href="{% url 'all_products' %}">
+
+                <div class="col-xs-6 home">
+                    <img src="{{ MEDIA_URL}}images/box-closed.jpg" class="img-responsive">
+                </div>
+                <div class="col-xs-6 home">
+                    <img src="{{ MEDIA_URL}}images/home-girl.jpg" class="img-responsive">
+                </div>
+                <div class="col-xs-12 text-center">
+                    <h3 class="display-4 home-cta">ORDER SOME HAPPY NOW!</h3>
+                </div>
         </div>
-        <div class="col-xs12 hidden-sm hidden-md hidden-lg">
-            <img src="{{ MEDIA_URL}}images/home.jpeg" class="img-responsive">
+    </div>
+    </a>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 text-center">
+            <h3>FEELING DOWN? WISH YOU COULD BE THERE TO CELEBRATE IN PERSON? JUST LOOKING TO BRIGHTEN SOMEONE'S DAY?</h3>
+            <h2>WE'VE GOT YOU COVERED</h2>
+            <p>Happy Box is your one stop shop for happy, dance inducing, smile creating, confetti flowing gift parties to send here, there, and everywhere. We put parties in a box to celebrate all your favorite people. Parties in a box are simply
+                a spin on the classic care package, but a lot more fun and a lot less work. Sending a party is the best way to bridge miles and send smiles. There is just so much to celebrate in life, so let's get this party started!</p>
         </div>
     </div>
 </div>
+<div class="container">
+    <div class="row">
+{% for category in categories %}
+<div class="col-xs-8 col-xs-offset-2 col-sm-4 col-sm-offset-0 col-md-4 col-md-offset-0 col-lg-4 col-lg-offset-0">
+<a href="{% url 'categories' category %}"><img class = "img-responsive" src="{{MEDIA_URL}}{{category.cat_cover}}"></a>
+<a href="{% url 'categories' category %}"><figcaption class="text-center">{{category|upper}}</figcaption></a>
+</div>
+{% endfor %} 
+</div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+            <h2>Link to About</h2>
+        </div>
+    </div>
+</div>
+
 
 
 {% endblock content %}
