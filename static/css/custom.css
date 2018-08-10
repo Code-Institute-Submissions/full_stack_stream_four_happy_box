@@ -3,22 +3,26 @@ body {
 
 }
 
+section {
+    min-height: 70vh;
+}
+
 /*Navigation*/
 .logo {
     font-family: 'Bungee Shade', cursive;
     font-size: 40px;
     text-align: center;
-    color: #FC0FC0;
+    color: #fa7fdb;
 }
 
 a:hover.logo {
    text-decoration: none;
-   color: #FC0FC0;
+   color: #fb98e2;
 }
 
 .navbar-default .navbar-brand {
       font-family: 'Bungee Shade', cursive;  
-      color: #FC0FC0;
+      color: #fb98e2;
 }
 
 .search-align {
@@ -61,7 +65,7 @@ a:hover.logo {
     padding: 0;
     margin: 0;
     border-radius: 0;
-    background-color: #FC0FC0;
+    background-color: #fa7fdb;
     color: #ffffff;
     
 }
@@ -78,16 +82,45 @@ a:hover.logo {
 }
 
 .cart_button {
-    border: solid #FC0FC0;
+    border: solid #FA7FDB;
     border-radius: 0%;
     background-color: #ffffff;
-    color:#FC0FC0;
+    color:#FA7FDB;
 }
 
 .cart_button:hover {
-    border: solid #FC0FC0;
+    border: solid #FA7FDB;
     border-radius: 0%;
-    background-color: #FC0FC0;
+    background-color: #FA7FDB;
+    color: #ffffff;
+}
+
+/*Cart & Wishlist*/
+
+.empty_message {
+    height: 4.5em;
+    background: #FDD519; /* For browsers that do not support gradients */
+    background: linear-gradient(to right, #fa7fdb, #fdd519);
+    color:#ffffff;
+}
+
+
+.empty_icon {
+    padding-top:3em;
+    padding-bottom:3em;
+}
+
+.browse a {
+    border: solid #FA7FDB;
+    border-radius: 0%;
+    background: #ffffff; 
+    color:#FA7FDB;;
+}
+
+.browse a:hover {
+    border: solid #FA7FDB;
+    border-radius: 0%;
+    background-color: #FA7FDB;
     color: #ffffff;
 }
 
@@ -105,17 +138,17 @@ a:hover.logo {
 }
 
 .contact_button {
-    border: solid #01ACBD;
+    border: solid #FA7FDB;
     border-radius: 0%;
     background-color: #ffffff;
-    color:#01ACBD;
+    color:#FA7FDB;
   
 }
 
 .contact_button:hover {
-    border: solid #01ACBD;
+    border: solid #FA7FDB;
     border-radius: 0%;
-    background-color: #01ACBD;
+    background-color: #FA7FDB;
     color: #ffffff;
 }
 

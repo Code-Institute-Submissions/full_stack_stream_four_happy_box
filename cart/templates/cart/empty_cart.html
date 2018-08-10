@@ -2,6 +2,31 @@
 {% load bootstrap_tags %}
 {% block content %}
 
-<h3>Your cart is sad and empty</h3>
+<section>
+    <div class="container empty_message">
+        <div class="row">
+            <div class="hidden-xs col-sm-12 text-center">
+              <h3>Uh Oh!! Your bag is sad and empty <i class="far fa-sad-cry"></i></h3>  
+            </div>
+            <div class="visible-xs text-center">
+              <h4>Uh Oh!! Your bag is sad and empty <i class="far fa-sad-cry"></i></h4>  
+            </div>
+        </div>
+    </div>
+<div class="container empty_icon">
+    <div class="row">
+        <div class="col-xs-12 col-lg-8 col-lg-offset-2 text-center">
+          <img class = "img-responsive" src="{{ MEDIA_URL}}images/empty_cart.png"></a>  
+        </div>
+    </div>
+</div>
 
-{% endblock %}
+ <div class="container">
+        <div class="row">
+            <div class="col-xs-12 text-center browse">
+              <a class="btn" href="{% url 'all_products' %}"><h4>Let's shop me happy <i class="fas fa-arrow-right"></i> <i class="far fa-smile-beam"></i></h4></a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock content %}

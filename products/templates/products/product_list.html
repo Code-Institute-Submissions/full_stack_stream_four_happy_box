@@ -12,7 +12,7 @@
               <h4>€{{product.price}}</h4>
         </a>
 
-        <p class="inline">{{product.description|truncatechars:20}}</p>
+        <p class="inline">{{product.description|truncatechars:40}}</p>
         {% if not in_wishlist %}
 
         <form class="inline product_hearts" action="{% url 'add_to_wishlist' %}?next={{request.path}}" method="post" id="empty_heart_form">
@@ -51,8 +51,5 @@
     </div>
   </div>
 </div>
-
-
-
 
 {% endblock content %}
