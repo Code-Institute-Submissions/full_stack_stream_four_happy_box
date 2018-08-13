@@ -1,50 +1,95 @@
-<div class="row cart_items">
-        <div class="col-sm-4">
-            <h3>Item</h3>
+<div class="container">
+    <div class="row visible -sm visible-md visible-lg cart-divider">
+        <div class="col-xs-12 col-sm-2">
+
         </div>
-        <div class="col-sm-2">
-            <h3>Price</h3>
+        <div class="col-xs-12 col-sm-2">
+            ITEM NAME
         </div>
-        <div class="col-sm-2">
-            <h3>Quantity</h3>
+        <div class="col-xs-12 col-sm-2">
+            REMOVE
         </div>
-        <div class="col-sm-2">
-            <h3>Total</h3>
+        <div class="col-xs-12 col-sm-2">
+            QTY
         </div>
-        <div class="col-sm-2">
+
+        <div class="col-xs-12 col-sm-2">
+            PRICE
+        </div>
+
+        <div class="col-xs-12 col-sm-2">
+            SUBTOTAL
         </div>
     </div>
-    
+
     {% for item in cart_items %}
-        <div class="row cart_items">
-        <div class="col-sm-4">
+    <div class="row hidden-xs cart-divider">
+        <div class="col-sm-2">
             <img height="100" width="100" src="{{ MEDIA_URL }}{{ item.image }}">
+        </div>
+        <div class="col-sm-2">
             {{ item.name }}
-            
         </div>
         <div class="col-sm-2">
-            <h4>€{{ item.price }}</h4>
-            <h4>€{{ item.card }}</h4>
-        </div>
-         
-        <div class="col-sm-2">
-            <form method="post" action="{% url 'adjust_cart' item.product_id %}">
+            <form method="post" action="{% url 'remove_from_cart' item.product_id %}?next={{request.path}}">
                 {% csrf_token %}
-                <input class="form-control quantity_form" name='quantity' type="number" value="{{item.quantity}}" min="0" max="5">
-                <button class="btn btn-warning" type="submit">Adjust</button>
+                <button type="submit" class="btn wish_button"><i class="far fa-times-circle fa-2x"></i></button>
             </form>
         </div>
         <div class="col-sm-2">
-            <h4>€{{item.total}}</h4>
+            <form class="form-inline" method="post" action="{% url 'adjust_cart' item.product_id %}">
+                <div class="col-auto">
+                    {% csrf_token %}
+                    <input class="form-control quantity_form" name='quantity' type="number" value="{{item.quantity}}" min="0" max="5">
+                    <button class="btn submit_button" type="submit">Update</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="col-sm-2">
+            €{{ item.price }}
         </div>
         <div class="col-sm-2">
-            <br>
-                <form  method="post" action="{% url 'remove_from_cart' item.product_id %}?next={{request.path}}">
-                    {% csrf_token %}
-                    <button type="submit"class="btn"><i class="far fa-times-circle fa-2x"></i></button>
-                </form>
+            €{{item.total}}
+        </div>
+    </div>
 
+
+    <div class="container visible-xs">
+        <div class="row visible-xs cart-divider">
+            <div class="col-xs-5 ">
+                <img height="100" width="100" src="{{ MEDIA_URL }}{{ item.image }}">
+            </div>
+            <div class="col-xs-7">
+                <div class="row">
+                    <div class="col-xs-6">
+                        {{ item.name }}
+                    </div>
+                    <div class="col-xs-6">
+                        <form method="post" action="{% url 'remove_from_cart' item.product_id %}?next={{request.path}}">
+                            {% csrf_token %}
+                            <button type="submit" class="btn wish_button"><i class="far fa-times-circle fa-2x"></i></button>
+                        </form>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-6">
+                        <form class="form-inline" method="post" action="{% url 'adjust_cart' item.product_id %}">
+                            {% csrf_token %}
+                            <input class="form-control quantity_form" name='quantity' type="number" value="{{item.quantity}}" min="0" max="5">
+                    </div>
+                    <div class="col-xs-6">
+                        <button class="btn submit_button" type="submit">UPDATE</i></button>
+                        </form>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12">
+                        €{{item.total}}
+                    </div>
+                </div>
+            </div>
         </div>
-        </div>
-         {% endfor %}
-       
+    </div>
+    {% endfor %}
+</div>

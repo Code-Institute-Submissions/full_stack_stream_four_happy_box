@@ -1,15 +1,56 @@
-{% extends "base.html" %}
-{% load bootstrap_tags %}
-{% block content %}
-<h1>Cart</h1>
+{% extends "base.html" %} {% load bootstrap_tags %} {% block content %}
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <h2>CART</h2>
+            </div>
+        </div>
+    </div>
 
-<div class="container-fluid">
-    <div class="col-sm-12">
-{% include 'cart/cart.html' %}
-<div class="total_and_checkout col-sm-11">
-    <h3>Basket Total</h3>
-    <h4>€{{ total }}</h4>
-<a href="{% url 'checkout' %}" class="btn btn-success" role="button">Checkout</a>
-</div>
-</div>
+
+
+    {% include 'cart/cart.html' %}
+
+    <div class="container">
+        <div class="row cart-divider">
+            <div class="col-xs-12">
+                <h4 class="text-right"> SUBTOTAL: €{{ total }}</h4>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container cart-direction hidden-xs">
+        <div class="row">
+            <div class="col-sm-6">
+                <a href="{% url 'checkout' %}" class="btn submit_button"><i class="fas fa-arrow-left"></i> CONTINUE SHOPPING </a>
+            </div>
+            <div class="col-sm-6">
+                <div class="text-right">
+                    <a href="{% url 'checkout' %}" class="btn submit_button"> PROCEED TO CHECKOUT <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+        </div>
+        
+        <div class="container cart-direction visible-xs">
+         <div class="row">
+              <div class="col-xs-12 mobile-cart">
+                <div class="text-right">
+                    <a href="{% url 'checkout' %}" class="btn submit_button"> PROCEED TO CHECKOUT <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+            </div>
+            <div class="row visible-xs">
+            <div class="col-xs-12 mobile-cart">
+                <div class="text-right">
+                <a href="{% url 'checkout' %}" class="btn submit_button"><i class="fas fa-arrow-left"></i> CONTINUE SHOPPING </a>
+                 </div>
+            </div>
+           
+        </div>
+        </div>
+    
+</section>
 {% endblock content %}

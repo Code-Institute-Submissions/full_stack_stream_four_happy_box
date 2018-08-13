@@ -8,6 +8,7 @@ section {
 }
 
 /*Navigation*/
+
 .logo {
     font-family: 'Bungee Shade', cursive;
     font-size: 40px;
@@ -16,17 +17,17 @@ section {
 }
 
 a:hover.logo {
-   text-decoration: none;
-   color: #fb98e2;
+    text-decoration: none;
+    color: #fb98e2;
 }
 
 .navbar-default .navbar-brand {
-      font-family: 'Bungee Shade', cursive;  
-      color: #fb98e2;
+    font-family: 'Bungee Shade', cursive;
+    color: #fb98e2;
 }
 
 .search-align {
-  padding-top: 23px;
+    padding-top: 23px;
 }
 
 .account-top {
@@ -34,14 +35,15 @@ a:hover.logo {
     text-align: right;
 }
 
-.account-top ul{
+.account-top ul {
     margin-bottom: 0px;
 }
+
 .account-top li {
     display: inline-block;
     text-decoration: none;
     padding-right: 15px;
-    
+
 }
 
 .search_box {
@@ -51,8 +53,8 @@ a:hover.logo {
 }
 
 .shipping-head {
-    background-color:#01ACBD;
-    color:#ffffff;
+    background-color: #2E5C79;
+    color: #ffffff;
     line-height: 2;
 }
 
@@ -67,7 +69,7 @@ a:hover.logo {
     border-radius: 0;
     background-color: #fa7fdb;
     color: #ffffff;
-    
+
 }
 
 .home-cta {
@@ -81,40 +83,53 @@ a:hover.logo {
     background-color: #ffffff;
 }
 
-.cart_button {
-    border: solid #FA7FDB;
-    border-radius: 0%;
-    background-color: #ffffff;
-    color:#FA7FDB;
+.far {
+    color: #fa7fdb;
 }
 
-.cart_button:hover {
-    border: solid #FA7FDB;
-    border-radius: 0%;
-    background-color: #FA7FDB;
-    color: #ffffff;
+/*Accounts*/
+
+.accounts {
+background: repeating-linear-gradient(
+  45deg,
+  #fee365,
+  #fee365 10px,
+  #ffffff 10px,
+  #ffffff 20px
+); 
+padding: 3em;
+border: solid #fee365;
 }
 
+.accounts_form {
+    background: #ffffff;
+}
+
+.auth {
+    padding-bottom: 1.8em;
+}
 /*Cart & Wishlist*/
 
 .empty_message {
     height: 4.5em;
-    background: #FDD519; /* For browsers that do not support gradients */
+    background: #FDD519;
+    /* For browsers that do not support gradients */
     background: linear-gradient(to right, #fa7fdb, #fdd519);
-    color:#ffffff;
+    color: #ffffff;
 }
 
 
 .empty_icon {
-    padding-top:3em;
-    padding-bottom:3em;
+    padding-top: 3em;
+    padding-bottom: 3em;
 }
 
 .browse a {
     border: solid #FA7FDB;
     border-radius: 0%;
-    background: #ffffff; 
-    color:#FA7FDB;;
+    background: #ffffff;
+    color: #FA7FDB;
+    ;
 }
 
 .browse a:hover {
@@ -124,54 +139,74 @@ a:hover.logo {
     color: #ffffff;
 }
 
+.cart-divider {
+    border-bottom: 0.1em solid #aeaeb0;
+    padding-bottom: 0.5em;
+    padding-top: 0.5em;
+}
+
+.cart-direction {
+    padding-top: 2em;
+}
+
+.mobile-cart {
+     padding-bottom: 1.5em;
+}
 /* Contact */
 
 .header_image {
-    background-image: url(https://beemoorwi.files.wordpress.com/2017/01/cup-1574446_1280.png);
-    height:600px;
+    background-image: url(/media/images/contact.jpg);
+    height: 600px;
     background-position: center center;
-    background-size:cover;
+    background-size: cover;
 }
 
-.contact_form h4{
+.contact_form h4 {
     text-align: center;
 }
 
-.contact_button {
+.submit_button {
     border: solid #FA7FDB;
     border-radius: 0%;
     background-color: #ffffff;
-    color:#FA7FDB;
-  
+    color: #FA7FDB;
+
 }
 
-.contact_button:hover {
+.submit_button:hover {
     border: solid #FA7FDB;
     border-radius: 0%;
     background-color: #FA7FDB;
     color: #ffffff;
 }
 
+.contact_submit {
+    padding-bottom: 3em;
+}
+
 /* About */
+
 .about_header_image {
     background-image: url(/media/images/about.jpg);
-    height:700px;
+    height: 700px;
     background-position: center center;
-    background-size:cover;
+    background-size: cover;
 }
 
 .overlay-text {
-  font-size:3.5vw;
-  float:right;
-  width:65%; /*important*/
-  bottom:12vw; /*important*/
-  padding: 25px;
-  background:hotpink;
+    font-size: 3.5vw;
+    float: right;
+    width: 65%;
+    /*important*/
+    bottom: 12vw;
+    /*important*/
+    padding: 25px;
+    background: hotpink;
 }
 
 footer {
     padding: 20px;
-    background-color:#01ACBD;
+    background-color: #2E5C79;
     color: #ffffff;
 }
 
@@ -195,6 +230,7 @@ ul.unstyled li a {
 }
 
 /*------------------------------------------*/
+
 /*Media Queries*/
 
 @media screen and (min-width: 768px) {
@@ -204,11 +240,9 @@ ul.unstyled li a {
         width: 100%;
         text-align: center;
     }
-    
+
     .navbar-default li {
         float: none;
         display: inline-block;
     }
 }
-
-
