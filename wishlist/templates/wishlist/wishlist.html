@@ -1,55 +1,63 @@
 {% extends 'base.html' %} {% load bootstrap_tags %} {% block content %}
 <div class="container">
     <div class="row">
-        <h2>Your Wishlist</h2>
+        <h2 class="text-center">Your Wishlist</h2>
     </div>
 </div>
-    
-    <form method="post" action="{% url 'add_all_wishlist_items_to_cart' %}?next={{request.path}}">
-        {% csrf_token %}
-        <button class="btn btn-success btn-lg" type="submit">Add all to Cart</button>
-    </form>
-    <br>
-    <form method="post" action="{% url 'delete_all_wishlist_items' %}?next={{request.path}}">
-        {% csrf_token %}
-        <button class="btn btn-danger" type="submit">Delete all from Wishlist</button>
-    </form>
+
 
 <div class="container">
     <div class="row">
         {% for product in wishlist_items %}
         <div class="col-sm-4">
-            <div class="x_for_close">
+            <a href="{% url 'product_detail' product.product_id %}">
+                            <img class="product_list_image" src="{{product.image.url}}" alt="product image">
+                            <div class="col-xs-6 product_list_attribute">
+                                <h4>{{product.name}}</h4>
+                                </div>
+                                </a>
+            <div class="col-xs-6 text-right product_list_attribute">
                 <form method="post" action="{% url 'remove_wishlist_item' product.product_id%}?next={{request.path}}">
                     {% csrf_token %}
-                    <button type="submit" class="btn"><i class="far fa-times-circle fa-3x"></i></button>
+                    <button type="submit" class="btn wish_button"><i class="far fa-times-circle fa-2x"></i></button>
                 </form>
             </div>
 
-            <div class="thumbnail">
+            <p>{{product.description|truncatechars:100}}</p>
+            <h4>€{{product.price}}</h4>
 
-                <a href="{% url 'product_detail' product.product_id %}">
-                            <img src="{{product.image.url}}" alt="" height="400" width="300">
-                            <div class="caption">
-                                <h4 class="pull-right">€{{product.price}}</h4>
-                                <h4>{{product.name}}
-                                </h4>
-                                </a>
-                <p>{{product.description|truncatechars:20}}</p>
-            </div>
-            <div class="wishlist_items_form">
-                <form action="{% url 'add_selected_wishlist_items_to_cart' %}?next={{request.path}}" method="post">
-                    {% csrf_token %}
-                    <input type="hidden" name="id" value="{{product.product_id}}" /> Quantity
-                    <input class="form-control quantity_form" type="number" name="quantity" value="{{product.quantity}}" max="5" min="1" />
-                    <input class="btn btn-success" type="submit" value="Add To Cart" />
-                </form>
-            </div>
+            <form class="form-inline" action="{% url 'add_selected_wishlist_items_to_cart' %}?next={{request.path}}" method="post">
+                {% csrf_token %}
+                <input type="hidden" name="id" value="{{product.product_id}}" />
+                <div class="col-xs-12 product_list_attribute wishlist_qty">
+                    <label for="wishlist_qty">QTY</label>
+                    <input class="form-control" id="wishlist_qty" type="number" name="quantity" value="{{product.quantity}}" max="5" min="1" />
+                </div>
+                <div class="col-xs-12 product_list_attribute">
+                    <input class="btn submit_button_list" type="submit" value="ADD TO CART" />
+                </div>
+            </form>
+        </div>
+
+        {% endfor %}
+    </div>
+</div>
+
+<div class="container wishlist_all_commands">
+    <div class="row">
+        <div class="col-xs-6">
+            <form method="post" action="{% url 'add_all_wishlist_items_to_cart' %}?next={{request.path}}">
+                {% csrf_token %}
+                <button class="btn submit_button" type="submit">Add all to Cart</button>
+            </form>
+        </div>
+        <div class="col-xs-6 text-right">
+            <form method="post" action="{% url 'delete_all_wishlist_items' %}?next={{request.path}}">
+                {% csrf_token %}
+                <button class="btn submit_button" type="submit">Delete Wishlist</button>
+            </form>
         </div>
     </div>
-
-
-    {% endfor %}
 </div>
 </div>
 

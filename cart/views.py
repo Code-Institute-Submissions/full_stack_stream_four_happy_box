@@ -22,12 +22,6 @@ def add_to_cart(request):
     else:
         quantity = 1
         
-    if int(request.POST['card']) > 0:
-        card = int(request.POST['card'])
-    else:
-        card = 1
-    
-    print(card)
     cart = request.session.get('cart', {})
     cart[id] = cart.get(id, 0) + quantity
    

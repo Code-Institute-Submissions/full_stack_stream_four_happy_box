@@ -11,6 +11,7 @@ def get_wishlist_items(wishlist):
             'product_id': item_id, 
             "image": this_product.image,
             "name": this_product.name,
+            "description": this_product.description,
             "price": this_product.price,
             'quantity': item_quantity,
         }
