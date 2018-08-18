@@ -10,8 +10,8 @@ section {
 /*Navigation*/
 
 .logo {
-    font-family: 'Bungee Shade', cursive;
-    font-size: 40px;
+    font-family: 'Anton';
+    font-size: 56px;
     text-align: center;
     color: #fa7fdb;
 }
@@ -21,9 +21,91 @@ a:hover.logo {
     color: #fb98e2;
 }
 
-.navbar-default .navbar-brand {
-    font-family: 'Bungee Shade', cursive;
+a:focus.logo {
+    text-decoration: none;
     color: #fb98e2;
+}
+
+.navbar-default .navbar-brand {
+    font-family: 'Anton', cursive;
+    color: #fb98e2;
+}
+
+#navbar {
+    background-color: #2e5c79;
+    border-color: #2e5c79; 
+}
+
+.navbar-default .navbar-nav>li>a{
+    color: #fa7fdb;
+}
+.navbar-default .navbar-nav>li>a:hover,.navbar-default .navbar-nav>li>a:focus{
+    background-color: #fff;
+}
+.open>.dropdown-menu{
+        background-color: #2e5c79;
+}
+.dropdown-menu>li>a{
+    color: #fa7fdb;
+}
+
+.open>.dropdown-toggle.btn-default {
+    background-color: #2e5c79;
+}
+.dropdown-toggle.btn-default{
+    background-color: #2e5c79;
+    color:#fa7fdb;
+}
+.btn{
+    border-radius:0;
+}
+.open>.dropdown-toggle.btn-default:focus, .open>.dropdown-toggle.btn-default:hover{
+    background-color: #fff;
+}
+.navbar-default .navbar-toggle .icon-bar  {
+    background-color: #fa7fdb;
+}
+
+
+.navbar-default .navbar-nav>li>a {
+    background-color: #2e5c79;
+}
+
+.dropdown {
+    background-color: #2e5c79;
+    color:#fa7fdb;
+}
+
+.navbar-default .navbar-nav .open .dropdown-menu>li>a {
+    color:#fa7fdb;
+}
+
+.search {
+   background-color: #2e5c79;
+    color:#fa7fdb;
+}
+
+.account-top li a {
+    color: #fa7fdb;
+}
+
+header { 
+    background-color: #2E5C79;
+    
+}
+
+.navbar-default .navbar-toggle {
+    border-color: #2e5c79;
+    border-radius: 0;
+}
+
+.navbar-default .navbar-toggle:focus {
+    background-color: #fff;
+}
+
+.navbar-header {
+     background-color: #2E5C79;
+    color:#fa7fdb;
 }
 
 .search-align {
@@ -86,9 +168,9 @@ a:hover.logo {
 /* Product Detail*/
 
 
-.far {
-    color: #fa7fdb;
-}
+/*.far {*/
+/*    color: #fa7fdb;*/
+/*}*/
 
 
 
@@ -180,14 +262,13 @@ border: solid #fee365;
     padding-bottom: 2em;
 }
 
-.fas {
-    color:#fdd519;
-   
-}
+
 
 .review_section{
     padding: 2em;
 }
+
+
 
 /* Contact */
 
@@ -261,7 +342,7 @@ border: solid #fee365;
 footer {
     padding: 20px;
     background-color: #2E5C79;
-    color: #ffffff;
+    color: #fa7fdb;
 }
 
 ul.unstyled {
