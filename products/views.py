@@ -22,5 +22,5 @@ def product_detail(request, pk):
     
 def get_cat_products(request, category):
     products = Product.objects.filter(category__name=category)
-    return render(request, 'products/product_list.html', {'products':products})
+    return render(request, 'products/product_list.html', {'products':products, 'category_filtered':category})
 
