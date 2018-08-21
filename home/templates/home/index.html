@@ -2,54 +2,129 @@
 
 
 
-<div class="container">
-    <div class="row">
-        <div class="col-xs-12 jumbotron">
-            <a href="{% url 'all_products' %}">
+<div class="hidden-md hidden-lg">
+    <div class="jumbotron" id="promotion-mobile">
+        <div class="container">
+            <div class="col-xs-12 text-center home-mobile-cta">
+                <h2 class="text-center">LET'S GET THIS PARTY STARTED</h2>
+                <p><a class="btn btn-default btn-lg" href="{% url 'all_products' %}" role="button">ORDER SOME HAPPY TODAY</a></p>
+            </div>
+        </div>
+    </div>
+</div>
 
-                <!--<div class="col-xs-6 home">-->
-                <!--    <img src="{{ MEDIA_URL}}images/box-closed.jpg" class="img-responsive">-->
-                <!--</div>-->
-                <!--<div class="col-xs-6 home">-->
-                    <img src="{{ MEDIA_URL}}images/home-girl.jpg" class="img-responsive">
-                <!--</div>-->
-                <div class="col-xs-12 text-center">
-                    <h3 class="display-4 home-cta">ORDER SOME HAPPY NOW!</h3>
+<div class="visible-md visible-lg head-image">
+    <div class="jumbotron" id="promotion">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 text-center home-cta">
+                    <h2 class="text-center">LET'S GET THIS PARTY STARTED</h2>
+                    <p><a class="btn btn-default btn-lg" href="{% url 'all_products' %}" role="button">ORDER SOME HAPPY TODAY</a></p>
                 </div>
-        </div>
-    </div>
-    </a>
-</div>
-
-<div class="container">
-    <div class="row">
-        <div class="col-xs-12 text-center">
-            <h3>FEELING DOWN? WISH YOU COULD BE THERE TO CELEBRATE IN PERSON? JUST LOOKING TO BRIGHTEN SOMEONE'S DAY?</h3>
-            <h2>WE'VE GOT YOU COVERED</h2>
-            <p>Happy Box is your one stop shop for happy, dance inducing, smile creating, confetti flowing gift parties to send here, there, and everywhere. We put parties in a box to celebrate all your favorite people. Parties in a box are simply
-                a spin on the classic care package, but a lot more fun and a lot less work. Sending a party is the best way to bridge miles and send smiles. There is just so much to celebrate in life, so let's get this party started!</p>
+            </div>
         </div>
     </div>
 </div>
-<div class="container">
-    <div class="row">
-{% for category in categories %}
-<div class="col-xs-8 col-xs-offset-2 col-sm-4 col-sm-offset-0 col-md-4 col-md-offset-0 col-lg-4 col-lg-offset-0">
-<a href="{% url 'categories' category %}"><img class = "img-responsive" src="{{MEDIA_URL}}{{category.cat_cover}}"></a>
-<a href="{% url 'categories' category %}"><figcaption class="text-center">{{category|upper}}</figcaption></a>
 </div>
-{% endfor %} 
 </div>
 </div>
 
-<div class="container">
+
+<div class="container content-section">
     <div class="row">
         <div class="col-xs-12">
-            <h2>Link to About</h2>
+            <h2 class="text-center">SO WHAT IS A HAPPY BOX?</h2>
+        </div>
+    </div>
+</div>
+
+<div class="container content-section">
+    <div class="row divider_box">
+        <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-5 col-md-offset-0 layout">
+            <img class="img-responsive" src="{{ MEDIA_URL}}images/box-closed.jpg" alt "Happy Box Packaging">
+        </div>
+        <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-7 col-md-offset-0">
+            <h3> FEELING DOWN? HIT A BUMP IN THE ROAD? SIMPLY WANT TO BRIGHTEN SOMEONE'S DAY?</h3>
+            <h3>HAPPY BOX HAS YOU COVERED <i class="far fa-smile"></i></h3>
+            <p>Happy Box is your one stop shop for happy. We are bombarded on a daily basis with how we should feel and reach mental balance and wellbeing. Sometimes all we need is a little boost to get us back on track. Happy box has this in abundance!</p>
+            <p>Maybe you got sopping wet on your way to work or you're sat at home feeling ill and sorry for yourself, we can help you out. With happy box you can order some self-care straight to your front door on demand.</p>
+            <p> Maybe a friend or family memeber needs cheeering up or a little boost. Sending a happy box is the best way to bridge miles and send smiles.</p>
+            <p>There is just so much to celebrate in life, so let's get this party started!</p>
+            <a role="button" class="btn btn-default submit_button" href="{% url 'about' %}">WANT TO KNOW MORE ABOUT US? <i class="fas fa-arrow-circle-right"> </i></a>
         </div>
     </div>
 </div>
 
 
+
+
+<div class="container content-section">
+    <div class="row">
+        <div class="col-xs-12">
+            <h2 class="text-center">BROWSE HAPPY BOXES BY CATEGORY</h2>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="container content-section">
+    <div class="row">
+        {% for category in categories %}
+        <div class="col-sm-4">
+            <div class="panel panel-default panel-front">
+                <div class="panel-heading">
+                    <div class="panel-title text-center">
+                        <a href="{% url 'categories' category %}"><img src="{{MEDIA_URL}}{{category.cat_cover}}" alt="{{category}}"></a>
+                    </div>
+                </div>
+
+
+                <div class="panel-body text-center">
+                    <a role="button" class="btn btn-default submit_button" href="{% url 'categories' category %}">
+                        <h4 class="text-center ">{{category|upper}}</h4>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        {% endfor %}
+    </div>
+</div>
+
+<div class="container content-section">
+    <div class="row">
+        <div class="col-xs-12">
+            <h2 class="text-center">WE'RE ON A MISSION TO SPREAD HAPPINESS</h2>
+        </div>
+    </div>
+</div>
+
+
+<div class="container content-section blog">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="col-sm-5">
+                <img class="img-responsive" src="{{ MEDIA_URL}}images/blog_post_self_care.jpg" alt "Blog Post Header Image">
+            </div>
+            <div class="col-sm-7">
+                <p>Here at Happy Box HQ we know how important mental health is. We want to share and spread the word in every way we can.</p>
+                <p>Our blog is one of the places which we do this. We like to showcase articles that will complement our message and help our users along their happiness journey <i class="far fa-smile"></i></p>
+                <a role="button" class="btn btn-default submit_button" href="{% url 'get_posts' %}"> CHECK OUT OUR HAPPY BLOG POSTS HERE <i class="fas fa-arrow-circle-right"> </i></a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container content-section">
+    <div class="row">
+        <div class="col-xs-12">
+            <h2 class="text-center">QUESTIONS? COMMENTS? SUGGESTIONS</h2>
+            <div class="col-xs-12 text-center contact_submit">
+                <a role="button" class="btn btn-default submit_button" href="{% url 'contact' %}"> LET US KNOW </a>
+            </div>
+        </div>
+    </div>
+</div>
 
 {% endblock content %}
