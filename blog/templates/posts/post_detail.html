@@ -20,9 +20,7 @@
             <a class="btn btn-default submit_button" href="{% url 'add_comment_to_post' pk=post.pk %}">Add comment</a> {% if user == post.author or user.is_superuser %}
             <a href="{% url 'edit_post' post.id %}" class="btn btn-default submit_button">Edit Post</a> {% endif %}
             <hr>
-
         </div>
-
     </div>
 </div>
 

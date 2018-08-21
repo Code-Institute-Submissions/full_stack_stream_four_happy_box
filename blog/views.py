@@ -47,7 +47,7 @@ def edit_post(request, pk):
         form = BlogPostForm(instance=post)
     return render(request, 'posts/blog_post_form.html', {'form': form})
 
-@login_required    
+@login_required(login_url="/accounts/login")   
 def add_comment_to_post(request, pk):
     post = get_object_or_404(Post, pk=pk)
     if request.method == "POST":

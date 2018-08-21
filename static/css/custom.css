@@ -5,7 +5,7 @@ body {
 }
 
 p {
-    font-size: 18px;
+    font-size: 16px;
 }
 
 
@@ -254,11 +254,9 @@ nav {
 
 /* Product Detail*/
 
-/*.far {*/
-
-/*    color: #ff98cb;*/
-
-/*}*/
+.stars_and_reviews {
+    color: #fdd519;
+}
 
 /*Accounts*/
 
@@ -277,10 +275,15 @@ nav {
 }
 
 .auth {
+  
     padding-bottom: 1.8em;
 }
 
 /*Cart & Wishlist*/
+
+.badge {
+    background-color: #ff98cb;
+}
 
 .empty_message {
     height: 4.5em;
@@ -327,6 +330,7 @@ nav {
 
 .wish_button {
     background-color: #ffffff;
+    color:#ff98cb;
 }
 
 .product_list_attribute {

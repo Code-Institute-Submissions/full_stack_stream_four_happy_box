@@ -25,7 +25,6 @@ def add_to_cart(request):
     cart = request.session.get('cart', {})
     cart[id] = cart.get(id, 0) + quantity
    
-    print(cart)
     request.session['cart'] = cart   
     messages.success(request, "You added to your cart")
     return redirect(request.GET.get('next', 'products'))

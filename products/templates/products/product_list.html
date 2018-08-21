@@ -47,10 +47,13 @@
         <p class="pull-right">{{product.reviews_received.all|length}} Review</p>
         {% else %}
         <p class="pull-right">{{product.reviews_received.all|length}} Reviews</p>
-        {% endif %} {% endif %} {% if product.stars %} {% for star in product.stars %}
-        <i class="fas fa-star"></i> {% endfor %} {% if product.needs_half_star %}
-        <i class="fa fa-star-half"></i> {% endif %} {{product.average_rating}} avg rating {% else %}
-        <p><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>No reviews yet</p>
+        {% endif %} 
+        {% endif %} 
+        {% if product.stars %} 
+        {% for star in product.stars %}
+        <i class="fas fa-star stars_and_reviews"></i> {% endfor %} {% if product.needs_half_star %}
+        <i class="fa fa-star-half stars_and_reviews"></i> {% endif %} {{product.average_rating}} avg rating {% else %}
+        <p><i class="far fa-star stars_and_reviews"></i><i class="far fa-star stars_and_reviews"></i><i class="far fa-star stars_and_reviews"></i><i class="far fa-star stars_and_reviews"></i><i class="far fa-star stars_and_reviews"></i>No reviews yet</p>
         {% endif %}
       </div>
     </div>

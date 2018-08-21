@@ -1,7 +1,13 @@
 body {
     font-family: 'Roboto', sans-serif;
+    color:#2e5c79;
 
 }
+
+p {
+    font-size: 16px;
+}
+
 
 section {
     min-height: 70vh;
@@ -13,7 +19,7 @@ section {
     font-family: 'Anton';
     font-size: 56px;
     text-align: center;
-    color: #fa7fdb;
+    color: #ff98cb;
 }
 
 a:hover.logo {
@@ -33,37 +39,46 @@ a:focus.logo {
 
 #navbar {
     background-color: #2e5c79;
-    border-color: #2e5c79; 
+    border-color: #2e5c79;
 }
 
-.navbar-default .navbar-nav>li>a{
-    color: #fa7fdb;
+.navbar-default .navbar-nav>li>a {
+    color: #ff98cb;
 }
-.navbar-default .navbar-nav>li>a:hover,.navbar-default .navbar-nav>li>a:focus{
+
+.navbar-default .navbar-nav>li>a:hover,
+.navbar-default .navbar-nav>li>a:focus {
     background-color: #fff;
 }
-.open>.dropdown-menu{
-        background-color: #2e5c79;
+
+.open>.dropdown-menu {
+    background-color: #2e5c79;
 }
-.dropdown-menu>li>a{
-    color: #fa7fdb;
+
+.dropdown-menu>li>a {
+    color: #ff98cb;
 }
 
 .open>.dropdown-toggle.btn-default {
     background-color: #2e5c79;
 }
-.dropdown-toggle.btn-default{
+
+.dropdown-toggle.btn-default {
     background-color: #2e5c79;
-    color:#fa7fdb;
+    color: #ff98cb;
 }
-.btn{
-    border-radius:0;
+
+.btn {
+    border-radius: 0;
 }
-.open>.dropdown-toggle.btn-default:focus, .open>.dropdown-toggle.btn-default:hover{
+
+.open>.dropdown-toggle.btn-default:focus,
+.open>.dropdown-toggle.btn-default:hover {
     background-color: #fff;
 }
-.navbar-default .navbar-toggle .icon-bar  {
-    background-color: #fa7fdb;
+
+.navbar-default .navbar-toggle .icon-bar {
+    background-color: #ff98cb;
 }
 
 
@@ -73,25 +88,25 @@ a:focus.logo {
 
 .dropdown {
     background-color: #2e5c79;
-    color:#fa7fdb;
+    color: #ff98cb;
 }
 
 .navbar-default .navbar-nav .open .dropdown-menu>li>a {
-    color:#fa7fdb;
+    color: #ff98cb;
 }
 
 .search {
-   background-color: #2e5c79;
-    color:#fa7fdb;
+    background-color: #2e5c79;
+    color: #ff98cb;
 }
 
 .account-top li a {
-    color: #fa7fdb;
+    color: #ff98cb;
 }
 
-header { 
+nav {
     background-color: #2E5C79;
-    
+    padding-bottom: 0.02em;
 }
 
 .navbar-default .navbar-toggle {
@@ -103,13 +118,18 @@ header {
     background-color: #fff;
 }
 
+.navbar-default {
+    border-color: #2e5c79;
+    background-color: #2e5c79;
+}
+
 .navbar-header {
-     background-color: #2E5C79;
-    color:#fa7fdb;
+    background-color: #2E5C79;
+    color: #ff98cb;
 }
 
 .search-align {
-    padding-top: 23px;
+    padding-top: 37px;
 }
 
 .account-top {
@@ -135,7 +155,7 @@ header {
 }
 
 .shipping-head {
-    background-color: #2E5C79;
+    background-color: #ff98cb;
     color: #ffffff;
     line-height: 2;
 }
@@ -145,47 +165,109 @@ header {
     padding: 0;
 }
 
-.container .jumbotron {
-    padding: 0;
-    margin: 0;
+
+#promotion {
+    background-image: url(/media/images/happy_home.jpg);
+    background-size: cover;
+    background-position: center center;
     border-radius: 0;
-    background-color: #fa7fdb;
     color: #ffffff;
+    height: 800px;
+
+}
+
+#promotion-mobile {
+    background-image: url(/media/images/happy_home.jpg);
+    background-size: cover;
+    background-position: center center;
+    border-radius: 0;
+    color: #ffffff;
+    height: 450px;
 
 }
 
 .home-cta {
-    color: #ffffff;
+    top: 20em;
 }
 
+.home-cta h2 {
+    font-size: 6em;
+}
+
+.home-mobile-cta {
+    top: 10em;
+}
+
+.btn-lg {
+    background-color: #2e5c79;
+    color: #ff98cb;
+    border-color: #ff98cb;
+}
+
+
+
+
+.content-section {
+    padding-top: 2em;
+    padding-bottom: 2em;
+}
+
+.panel-default {
+    border-color: #ffffff;
+    box-shadow: none;
+}
+
+.panel-default>.panel-heading {
+    background-color: #ffffff;
+    border-color: #ffffff;
+}
+
+.layout { 
+    padding: 0;
+}
+
+.blog {
+    padding-bottom: 2em;
+}
+
+.blog_summary img {
+    max-width: 100%;
+}
+
+.blog_post_summary p {
+    font-size: 14px;
+}
+
+.blog_post_summary h3 {
+   padding-top: 0;
+   margin-top: 0;
+}
+
+
 /* Product List*/
+
 .product_list_image {
-    width:100%;
-    height:100%;
+    width: 100%;
+    height: 100%;
 }
 
 
 /* Product Detail*/
 
-
-/*.far {*/
-/*    color: #fa7fdb;*/
-/*}*/
-
-
+.stars_and_reviews {
+    color: #fdd519;
+}
 
 /*Accounts*/
 
 .accounts {
-background: repeating-linear-gradient(
-  45deg,
-  #fee365,
-  #fee365 10px,
-  #ffffff 10px,
-  #ffffff 20px
-); 
-padding: 3em;
-border: solid #fee365;
+    background: repeating-linear-gradient( 45deg,
+    #fee365,
+    #fee365 10px,
+    #ffffff 10px,
+    #ffffff 20px);
+    padding: 3em;
+    border: solid #fee365;
 }
 
 .accounts_form {
@@ -193,15 +275,21 @@ border: solid #fee365;
 }
 
 .auth {
+  
     padding-bottom: 1.8em;
 }
+
 /*Cart & Wishlist*/
+
+.badge {
+    background-color: #ff98cb;
+}
 
 .empty_message {
     height: 4.5em;
     background: #FDD519;
     /* For browsers that do not support gradients */
-    background: linear-gradient(to right, #fa7fdb, #fdd519);
+    background: linear-gradient(to right, #ff98cb, #fdd519);
     color: #ffffff;
 }
 
@@ -212,17 +300,17 @@ border: solid #fee365;
 }
 
 .browse a {
-    border: solid #FA7FDB;
+    border: solid #ff98cb;
     border-radius: 0%;
     background: #ffffff;
-    color: #FA7FDB;
+    color: #ff98cb;
     ;
 }
 
 .browse a:hover {
-    border: solid #FA7FDB;
+    border: solid #ff98cb;
     border-radius: 0%;
-    background-color: #FA7FDB;
+    background-color: #ff98cb;
     color: #ffffff;
 }
 
@@ -237,11 +325,12 @@ border: solid #fee365;
 }
 
 .mobile-cart {
-     padding-bottom: 1.5em;
+    padding-bottom: 1.5em;
 }
 
 .wish_button {
     background-color: #ffffff;
+    color:#ff98cb;
 }
 
 .product_list_attribute {
@@ -250,7 +339,7 @@ border: solid #fee365;
 }
 
 .product_list_attribute h4 {
-   color: #000000;
+    color: #000000;
 }
 
 .wishlist_qty {
@@ -264,7 +353,7 @@ border: solid #fee365;
 
 
 
-.review_section{
+.review_section {
     padding: 2em;
 }
 
@@ -284,34 +373,34 @@ border: solid #fee365;
 }
 
 .submit_button {
-    border: solid #FA7FDB;
+    border: solid #ff98cb;
     border-radius: 0%;
     background-color: #ffffff;
-    color: #FA7FDB;
+    color: #ff98cb;
 
 }
 
 
 .submit_button:hover {
-    border: solid #FA7FDB;
+    border: solid #ff98cb;
     border-radius: 0%;
-    background-color: #FA7FDB;
+    background-color: #ff98cb;
     color: #ffffff;
 }
 
 .submit_button_list {
-    border: solid #FA7FDB;
+    border: solid #ff98cb;
     border-radius: 0%;
     background-color: #ffffff;
-    color: #FA7FDB;
+    color: #ff98cb;
     width: 100%;
 
 }
 
 .submit_button_list:hover {
-    border: solid #FA7FDB;
+    border: solid #ff98cb;
     border-radius: 0%;
-    background-color: #FA7FDB;
+    background-color: #ff98cb;
     color: #ffffff;
 }
 
@@ -323,26 +412,60 @@ border: solid #fee365;
 
 .about_header_image {
     background-image: url(/media/images/about.jpg);
-    height: 700px;
+    height: 600px;
     background-position: center center;
     background-size: cover;
+    
 }
 
-.overlay-text {
-    font-size: 3.5vw;
-    float: right;
-    width: 65%;
-    /*important*/
-    bottom: 12vw;
-    /*important*/
-    padding: 25px;
-    background: hotpink;
+.speech-bubble {
+    background: #ff98cb;
+    display: inline-block;
+    margin-bottom: 1em;
+    padding: 1em;
+    position: relative;
+    vertical-align: top;
+    min-width: 7em;
+    border-radius: .4em;
+    width: 100%;
 }
+
+.speech-bubble:after {
+    border: 1em solid transparent;
+    border-top-color: #ff98cb;
+    content: '';
+    margin-left: -1em;
+    position: absolute;
+    top: 100%;
+    left: 90%;
+    width: 0;
+    height: 0;
+}
+
+.customer_detail {
+    text-align: right;
+    font-style: italic;
+}
+
+.meet {
+    border-radius:50%;
+}
+
+
 
 footer {
     padding: 20px;
     background-color: #2E5C79;
-    color: #fa7fdb;
+    color: #ff98cb;
+}
+
+footer a {
+   color: #ff98cb;  
+}
+
+footer a:hover {
+   color: #ffffff;
+  text-decoration:none;
 }
 
 ul.unstyled {
@@ -358,11 +481,7 @@ ul.unstyled li {
 
 }
 
-ul.unstyled li a {
-    color: #ffffff;
 
-
-}
 
 /*------------------------------------------*/
 
@@ -379,5 +498,18 @@ ul.unstyled li a {
     .navbar-default li {
         float: none;
         display: inline-block;
+    
     }
+    
+}
+
+@media only screen 
+  and (min-device-width: 768px) 
+  and (max-device-width: 1024px) 
+  and (-webkit-min-device-pixel-ratio: 1) {
+      
+      .panel img {
+          width:80%;
+      }
+
 }

@@ -10,7 +10,7 @@
     {% for review in product.reviews_received.all %}
     <p><strong>{{review.title}}</strong></p>
     <p>{{review.content}}</p>
-    <p><small>Rating:
+    <p class="stars_and_reviews"><small>Rating:
               {% for star in review.stars %}
                   <i class="fas fa-star"></i>
               {% endfor %}

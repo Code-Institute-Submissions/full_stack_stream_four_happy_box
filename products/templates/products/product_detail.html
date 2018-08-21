@@ -1,6 +1,6 @@
 {% extends "base.html" %} {% load bootstrap_tags %} {% block content %}
 
-<div class="container">
+<div class="container content-section">
   <div class="row">
     <div class=col-sm-8>
       <div class="row">
@@ -11,7 +11,7 @@
       <div class="row">
         {% for i in images %}
         <div class="col-xs-2">
-          <a class="thumbnail" data-fancybox="gallery" href={{i.gallery_image.url}}><img width="70%" class="card-img-top img-fluid" src="{{i.gallery_image.url}}" alt=""><br>
+          <a class="thumbnail" data-fancybox="gallery" href={{i.gallery_image.url}}><img width="80%" class="card-img-top img-fluid" src="{{i.gallery_image.url}}" alt=""><br>
         </a>
         </div>
         {% endfor %}
@@ -46,7 +46,7 @@
 
       <p class="card-text">Category: {{product.category}}</p>
       <p class="card-text">{{product.description}}</p>
-      <h5>Box Contents:</h5>
+      <h5>This Box Contains:</h5>
       <ul>
         <li>{{product.cover_image_name}}</li>
 
@@ -55,10 +55,10 @@
         {% endif %} {% endfor %}
       </ul>
 
-      <p class="stars_and_reviews_view_product">
+      <p class="stars_and_reviews">
         {% if product.stars %} {% for star in product.stars %}
         <i class="fas fa-star"></i> {% endfor %} {% if product.needs_half_star %}
-        <i class="fa fa-star-half"></i> {% endif %} {{product.average_rating}} avg rating
+        <i class="fa fa-star-half"></i> {% endif %} <p>{{product.average_rating}} avg rating</p>
         <a href="#review-list">See Reviews</a> {% else %}
         <p>
           <i class="far fa-star"></i>
@@ -73,14 +73,7 @@
 
       <form class="form-inline" action="{% url 'add_to_cart' %}?next={{request.path}}" method="post">
         {% csrf_token %}
-        <!--<select name="card" class="card">-->
-        <!--                      <option value="1" type="number">You Deserve It</option>-->
-        <!--                        <option value="2" type="number">The Only Way Is Up</option>-->
-        <!--                          <option value="3" type="number">Thinking Of You</option>-->
-        <!--                          <option value="4" type="number">Happy Birthday</option>-->
-        <!--                          <option value="5" type="number">Bon Voyage</option>-->
-        <!--                          <option value="6" type="number">Get Well Soon</option>-->
-        <!--                      </select>-->
+
         <input type="hidden" name="id" value="{{product.id}}" />
         <div class="col-xs-12 product_list_attribute wishlist_qty">
           <label for="product_qty">QTY</label>
