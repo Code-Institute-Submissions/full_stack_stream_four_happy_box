@@ -230,6 +230,20 @@ nav {
     padding-bottom: 2em;
 }
 
+.blog_summary img {
+    max-width: 100%;
+}
+
+.blog_post_summary p {
+    font-size: 14px;
+}
+
+.blog_post_summary h3 {
+   padding-top: 0;
+   margin-top: 0;
+}
+
+
 /* Product List*/
 
 .product_list_image {

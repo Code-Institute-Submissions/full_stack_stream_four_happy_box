@@ -1,22 +1,22 @@
-<div class="col-xs-12">
-  <div class="row">
-    
-      <h2>Customer Reviews</h2>
-    </div>
-    </div>
-    <div class="card-body">
+<div class="row">
+  <div class="col-xs-12">
+    <h2>Customer Reviews</h2>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-xs-12">
 
     {% for review in product.reviews_received.all %}
     <p><strong>{{review.title}}</strong></p>
     <p>{{review.content}}</p>
-    <p><small >Rating:
+    <p><small>Rating:
               {% for star in review.stars %}
                   <i class="fas fa-star"></i>
               {% endfor %}
               </small></p>
     <p><small class="text-muted">Posted by {{review.reviewer.username}} | {{review.date}}</small></p>
 
-    <hr>
-    {%endfor%}
-    </div>
+    <hr> {%endfor%}
+  </div>
 </div>
