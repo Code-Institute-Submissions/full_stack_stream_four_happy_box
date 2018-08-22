@@ -30,8 +30,8 @@
         <img id="keyboard_icon" src="keybd_closed.png" alt="Show keyboard shortcuts" />
 
         <h2 class="stats">
-            27 statements &nbsp;
-            <span class="run hide_run shortkey_r button_toggle_run">27 run</span>
+            31 statements &nbsp;
+            <span class="run hide_run shortkey_r button_toggle_run">31 run</span>
             <span class="mis shortkey_m button_toggle_mis">0 missing</span>
             <span class="exc shortkey_x button_toggle_exc">0 excluded</span>
 
@@ -125,6 +125,10 @@
 <p id="n56" class="stm run hide_run"><a href="#n56">56</a></p>
 <p id="n57" class="stm run hide_run"><a href="#n57">57</a></p>
 <p id="n58" class="pln"><a href="#n58">58</a></p>
+<p id="n59" class="stm run hide_run"><a href="#n59">59</a></p>
+<p id="n60" class="stm run hide_run"><a href="#n60">60</a></p>
+<p id="n61" class="stm run hide_run"><a href="#n61">61</a></p>
+<p id="n62" class="stm run hide_run"><a href="#n62">62</a></p>
 
             </td>
             <td class="text">
@@ -186,6 +190,10 @@
 <p id="t56" class="stm run hide_run">        <span class="nam">self</span><span class="op">.</span><span class="nam">assertFalse</span><span class="op">(</span><span class="nam">form</span><span class="op">.</span><span class="nam">is_valid</span><span class="op">(</span><span class="op">)</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
 <p id="t57" class="stm run hide_run">        <span class="nam">self</span><span class="op">.</span><span class="nam">assertEqual</span><span class="op">(</span><span class="nam">form</span><span class="op">.</span><span class="nam">errors</span><span class="op">[</span><span class="str">'email'</span><span class="op">]</span><span class="op">,</span> <span class="op">[</span><span class="str">'Email addresses must be unique.'</span><span class="op">]</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
 <p id="t58" class="pln"><span class="strut">&nbsp;</span></p>
+<p id="t59" class="stm run hide_run">    <span class="key">def</span> <span class="nam">test_get_login</span><span class="op">(</span><span class="nam">self</span><span class="op">)</span><span class="op">:</span><span class="strut">&nbsp;</span></p>
+<p id="t60" class="stm run hide_run">        <span class="nam">page</span><span class="op">=</span><span class="nam">self</span><span class="op">.</span><span class="nam">client</span><span class="op">.</span><span class="nam">get</span><span class="op">(</span><span class="str">"/accounts/login"</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
+<p id="t61" class="stm run hide_run">        <span class="nam">self</span><span class="op">.</span><span class="nam">assertEqual</span><span class="op">(</span><span class="nam">page</span><span class="op">.</span><span class="nam">status_code</span><span class="op">,</span> <span class="num">200</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
+<p id="t62" class="stm run hide_run">        <span class="nam">self</span><span class="op">.</span><span class="nam">assertTemplateUsed</span><span class="op">(</span><span class="nam">page</span><span class="op">,</span> <span class="str">"accounts/login.html"</span><span class="op">,</span> <span class="str">"base.html"</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
 
             </td>
         </tr>
@@ -196,7 +204,7 @@
     <div class="content">
         <p>
             <a class="nav" href="index.html">&#xab; index</a> &nbsp; &nbsp; <a class="nav" href="https://coverage.readthedocs.io">coverage.py v4.5.1</a>,
-            created at 2018-08-22 13:40
+            created at 2018-08-22 14:15
         </p>
     </div>
 </div>
