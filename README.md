@@ -1,6 +1,4 @@
-# Happy Box
-
-
+# Happy Box   [![Build Status](https://travis-ci.org/nikralave/full-stack-project.svg?branch=master)](https://travis-ci.org/nikralave/full-stack-project)
 
 ## Project Overview
 
