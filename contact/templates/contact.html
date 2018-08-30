@@ -10,7 +10,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-xs-12 hidden-sm hidden-md hidden-lg">
-                <img class="img-responsive" src="{{ MEDIA_URL}}images/contact.jpg">
+                <img class="img-responsive" src="{{ MEDIA_URL}}images/contact.jpg" alt="Contact Header Laptop Picture">
             </div>
         </div>
     </div>
@@ -27,21 +27,22 @@
     <div class="row">
         <div class="col-xs-12 contact_form">
             <h4>Questions? Suggestions? Want to collaborate? Know awesome products for our boxes? Just want to say "Hey"? Whatever the reason, we loooooooove hearing from you! Fill out the form below</h4>
-            <form role="form" action="{% url 'contact' %}" method="POST">
+            <form  action="{% url 'contact' %}" method="POST">
                 <div class="form-group">
                     {% csrf_token %} {{ form | as_bootstrap }}
                 </div>
-                
+
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-12 text-center contact_submit">
+                            <button class="btn submit_button" type="submit">SEND MESSAGE</button>
+                        </div>
+                    </div>
+                </div>
             </form>
         </div>
     </div>
 </div>
 
-<div class="container">
-    <div class="row">
-        <div class="col-xs-12 text-center contact_submit">
-            <button class="btn submit_button" type="submit">SEND MESSAGE</button>
-        </div>
-    </div>
-</div>
+
 {% endblock %}

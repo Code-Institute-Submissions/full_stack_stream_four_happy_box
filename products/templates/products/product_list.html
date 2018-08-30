@@ -16,7 +16,7 @@
     <div class="col-sm-4">
 
       <a href="{% url 'product_detail' product.id %}">
-            <img class="product_list_image" src="{{product.image.url}}" alt="product image">
+            <img class="product_list_image" src="{{product.image.url}}" alt="{{product.cover_image_name}}">
             <div class="col-xs-6 product_list_attribute">
             <h4>{{product.name}}</h4>
              

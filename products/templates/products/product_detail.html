@@ -2,16 +2,16 @@
 
 <div class="container content-section">
   <div class="row">
-    <div class=col-sm-8>
+    <div class="col-sm-8">
       <div class="row">
-        <div class="col-xs-10 col-xs-offset-1">
-          <a data-fancybox="gallery" href="{{MEDIA_URL}}{{product.image}}"><img class="img-responsive" src="{{MEDIA_URL}}{{product.image}}" alt=""></a>
+        <div class="col-xs-10 col-xs-offset-1 cover_image">
+          <a data-fancybox="gallery" href="{{MEDIA_URL}}{{product.image}}"><img class="img-responsive" src="{{MEDIA_URL}}{{product.image}}" alt="{{product.cover_image_name}}"></a>
         </div>
       </div>
       <div class="row">
         {% for i in images %}
         <div class="col-xs-2">
-          <a class="thumbnail" data-fancybox="gallery" href={{i.gallery_image.url}}><img width="80%" class="card-img-top img-fluid" src="{{i.gallery_image.url}}" alt=""><br>
+          <a class="thumbnail" data-fancybox="gallery" href={{i.gallery_image.url}}><img class="card-img-top img-fluid" src="{{i.gallery_image.url}}" alt="{{i.name}}"><br>
         </a>
         </div>
         {% endfor %}
@@ -27,7 +27,7 @@
         <input type="hidden" name="id" value="{{product.id}}" />
         <button type="submit" class="btn wish_button
           ">
-            <i class="far fa-heart fa-2x" type="submit"></i>
+            <i class="far fa-heart fa-2x"></i>
             ADD TO WISHLIST
           </button>
       </form>

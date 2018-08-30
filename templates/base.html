@@ -62,87 +62,85 @@
                                 <li><a href="{% url 'login' %}"><i class="fas fa-sign-in-alt"></i> Login</a></li>
                                 {% endif %}
                             </ul>
-                            </li>
-                            <li><a href="{% url 'view_cart' %}">
+                        </li>
+                        <li><a href="{% url 'view_cart' %}">
                              <i class="fas fa-shopping-bag"></i>
                             {% if product_count > 0 %}
                             <label class="badge">{{ product_count }}</label>
                             {% endif %}
                         </a>
-                            </li>
-                            <li><a href="{% url 'view_wishlist' %}"><i class="fas fa-heart"></i>
+                        </li>
+                        <li><a href="{% url 'view_wishlist' %}"><i class="fas fa-heart"></i>
                     {% if items_in_wishlist %}
                     <label class="badge">{{items_in_wishlist}}</label>
                     {% endif %}</a></li>
                     </ul>
-                    </div>
                 </div>
             </div>
-            <nav class="navbar navbar-masthead navbar-default">
-                <div class="container">
-                    <div class="navbar-header">
-                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        </div>
+        <nav class="navbar navbar-masthead navbar-default">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                        <a class="navbar-brand hidden-sm hidden-md hidden-lg" href="/">Happy Box</a>
-                    </div>
-                    <div id="navbar" class="navbar-collapse collapse">
-                        <ul class="nav navbar-nav navbar-default">
-                            <li class="hidden-sm hidden-md hidden-lg">
-                                        <form class="form-inline search" action="{% url 'search' %}" method="get">
-                                            <input class="form-control" type="search" name="q" placeholder="Search" aria-label="Search">
-                                            <button class="btn hidden" type="submit"></button>
-                                        </form>
-                                    </li>
-                            <li class="dropdown hidden-sm hidden-md hidden-lg">
-                                <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-user"></span> Account
+                    <a class="navbar-brand hidden-sm hidden-md hidden-lg" href="/">Happy Box</a>
+                </div>
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-default">
+                        <li class="hidden-sm hidden-md hidden-lg">
+                            <form class="form-inline search" action="{% url 'search' %}" method="get">
+                                <input class="form-control" type="search" name="q" placeholder="Search" aria-label="Search">
+                                <button class="btn hidden" type="submit"></button>
+                            </form>
+                        </li>
+                        <li class="dropdown hidden-sm hidden-md hidden-lg">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-user"></span> Account
                             <span class="caret"></span></a>
-                                <ul class="dropdown-menu">
-                                    
-                                    {% if user.is_authenticated %}
-                                    <li><a href="{% url 'profile' %}"><i class="far fa-user"></i> Profile</a></li>
-                                    <li><a href="{% url 'logout' %}"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
-                                    {% else %}
-                                    <li><a href="{% url 'register' %}"><i class="fas fa-user-plus"></i> Sign Up</a></li>
-                                    <li><a href="{% url 'login' %}"><i class="fas fa-sign-in-alt"></i> Login</a></li>
-                                    {% endif %}
-                                </ul>
-                            </li>
-                            <li class="hidden-sm hidden-md hidden-lg"><a href="{% url 'view_cart' %}">
+                            <ul class="dropdown-menu">
+
+                                {% if user.is_authenticated %}
+                                <li><a href="{% url 'profile' %}"><i class="far fa-user"></i> Profile</a></li>
+                                <li><a href="{% url 'logout' %}"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+                                {% else %}
+                                <li><a href="{% url 'register' %}"><i class="fas fa-user-plus"></i> Sign Up</a></li>
+                                <li><a href="{% url 'login' %}"><i class="fas fa-sign-in-alt"></i> Login</a></li>
+                                {% endif %}
+                            </ul>
+                        </li>
+                        <li class="hidden-sm hidden-md hidden-lg"><a href="{% url 'view_cart' %}">
                              <i class="fas fa-shopping-bag"></i> Cart
                             {% if product_count > 0 %}
                             <label class="badge">{{ product_count }}</label>
                             {% endif %}
                         </a>
-                            </li>
-                            <li class="hidden-sm hidden-md hidden-lg"><a href="{% url 'view_wishlist' %}"><i class="fas fa-heart"></i> Wishlist
+                        </li>
+                        <li class="hidden-sm hidden-md hidden-lg"><a href="{% url 'view_wishlist' %}"><i class="fas fa-heart"></i> Wishlist
                     {% if items_in_wishlist %}
-                    <span class="badge item_badge"><i class="fas fa-heart">{{items_in_wishlist}}</i></span>
+                    <span class="badge item_badge">{{items_in_wishlist}}</span>
                     {% endif %}</a></li>
-
-                            <li>
-                                <div class="dropdown">
-                                    <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                                SHOP
-                                <span class="caret"></span>
-      </button>
-                                    <ul class="dropdown-menu">
-                                        <li><a href="{% url 'all_products' %}"> ALL BOXES</a></li>
-                                        {% for category in categories %}
-                                        <li><a href="{% url 'categories' category %}">{{category|upper}}</a></li>
-                                        {% endfor %}
-                                    </ul>
-                            </li>
-                            <li><a href="{% url 'about' %}"> ABOUT</a></li>
-                            <li><a href="{% url 'contact' %}">CONTACT</a></li>
-                            <li><a href="{% url 'get_posts' %}">BLOG</a></li>
-                        </ul>
-                        </div>
+                        <li>
+                            <div class="dropdown">
+                                <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                SHOP<span class="caret"></span></button>
+                                <ul class="dropdown-menu">
+                                    <li><a href="{% url 'all_products' %}"> ALL BOXES</a></li>
+                                    {% for category in categories %}
+                                    <li><a href="{% url 'categories' category %}">{{category|upper}}</a></li>
+                                    {% endfor %}
+                                </ul>
+                        </li>
+                        <li><a href="{% url 'about' %}"> ABOUT</a></li>
+                        <li><a href="{% url 'contact' %}">CONTACT</a></li>
+                        <li><a href="{% url 'get_posts' %}">BLOG</a></li>
+                    </ul>
                     </div>
-            </nav>
+                </div>
+            </div>
+        </nav>
     </nav>
 
     {% if messages %}
@@ -152,31 +150,31 @@
         </div>
     </div>
     {% endif %} {% block content %} {% endblock %}
-    
-        <footer>
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-6">
-                        
-                            <h4><a href="{% url 'about' %}"> ABOUT</a></h4>
-                             <h4><a href="{% url 'all_products' %}"> SHOP</a></h4>
-                            <h4><a href="{% url 'contact' %}">CONTACT</a></h4>
-                            <h4><a href="{% url 'get_posts' %}">BLOG</a></h4>
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6">
+
+                    <h4><a href="{% url 'about' %}"> ABOUT</a></h4>
+                    <h4><a href="{% url 'all_products' %}"> SHOP</a></h4>
+                    <h4><a href="{% url 'contact' %}">CONTACT</a></h4>
+                    <h4><a href="{% url 'get_posts' %}">BLOG</a></h4>
 
 
-                    </div>
+                </div>
 
-                    <div class="col-sm-6">
-                       <h3>Connect</h3>
-                        <ul class="unstyled">
-                            <li><a href="#"><i class="fab fa-facebook-square fa-3x"></i></a></li>
-                            <li><a href="#"><i class="fab fa-instagram fa-3x"></i></a></li>
-                            <li><a href="#"><i class="fab fa-twitter fa-3x"></i></a></li>
-                        </ul>
-                    </div>
+                <div class="col-sm-6">
+                    <h3>Connect</h3>
+                    <ul class="unstyled">
+                        <li><a href="https://www.facebook.com/Code.InstituteIRL/" target=_blank><i class="fab fa-facebook-square fa-3x"></i></a></li>
+                        <li><a href="https://www.instagram.com/codeinstitute/" target=_blank><i class="fab fa-instagram fa-3x"></i></a></li>
+                        <li><a href="https://twitter.com/CodersInstitute" target=_blank><i class="fab fa-twitter fa-3x"></i></a></li>
+                    </ul>
                 </div>
             </div>
+        </div>
 
-        </footer>
+    </footer>
 </body>
 </html>

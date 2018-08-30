@@ -25,7 +25,7 @@
     {% for item in cart_items %}
     <div class="row hidden-xs cart-divider">
         <div class="col-sm-2">
-            <img height="100" width="100" src="{{ MEDIA_URL }}{{ item.image }}">
+            <img height="100" width="100" src="{{ MEDIA_URL }}{{ item.image }}" alt="Product Image">
         </div>
         <div class="col-sm-2">
             {{ item.name }}

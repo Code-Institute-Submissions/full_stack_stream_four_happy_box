@@ -29,7 +29,7 @@ def charge_card(stripe_token, total):
 
 def send_confirmation_email(email, username, items_and_total):
     context = {
-        'site_name': "Blah Blah dot com",
+        'site_name': "Happy Box",
         'user': username,
     }
     context.update(items_and_total)
