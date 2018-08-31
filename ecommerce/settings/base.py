@@ -22,9 +22,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__fil
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['full-stack-project-django-larkineva.c9users.io','full-stack-nikral.herokuapp.com']
+ALLOWED_HOSTS = ['full-stack-project-django-larkineva.c9users.io','full-stack-nikral-happy-box.herokuapp.com']
 
 
 # Application definition

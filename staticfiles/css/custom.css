@@ -303,19 +303,23 @@ nav {
     padding-bottom: 3em;
 }
 
+.browse {
+    padding-bottom: 2em;
+}
+
 .browse a {
-    border: solid #ff98cb;
+    border: solid #2e5c79;
     border-radius: 0%;
     background: #ffffff;
-    color: #ff98cb;
+    color: #2e5c79;
     ;
 }
 
 .browse a:hover {
     border: solid #ff98cb;
     border-radius: 0%;
-    background-color: #ff98cb;
-    color: #ffffff;
+    background-color: #2e5c79;
+    color: #ff98cb;
 }
 
 .cart-divider {
@@ -377,10 +381,10 @@ nav {
 }
 
 .submit_button {
-    border: solid #ff98cb;
+    border: solid #2e5c79;
     border-radius: 0%;
     background-color: #ffffff;
-    color: #ff98cb;
+    color: #2e5c79;
 
 }
 
@@ -388,15 +392,15 @@ nav {
 .submit_button:hover {
     border: solid #ff98cb;
     border-radius: 0%;
-    background-color: #ff98cb;
-    color: #ffffff;
+    background-color: #2e5c79;
+    color: #ff98cb;
 }
 
 .submit_button_list {
-    border: solid #ff98cb;
+    border: solid #2e5c79;
     border-radius: 0%;
-    background-color: #ffffff;
-    color: #ff98cb;
+    background-color:#ffffff;
+    color: #2e5c79;
     width: 100%;
 
 }
@@ -404,8 +408,8 @@ nav {
 .submit_button_list:hover {
     border: solid #ff98cb;
     border-radius: 0%;
-    background-color: #ff98cb;
-    color: #ffffff;
+    background-color: #2e5c79;
+    color: #ff98cb;
 }
 
 .contact_submit {

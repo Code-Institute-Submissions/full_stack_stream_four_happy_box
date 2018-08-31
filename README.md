@@ -111,8 +111,8 @@ I would like exapnd on my automated tests in the future.
 
 - All authorisation funcionality has been manually tested to ensure in working order for example sign up, log in, password reset - please note that the confirmation emails for reset are currently printing out in the terminal. As mentioned in future development section these will be directed to real inboxes.
 - Product purchasing functionality has been added. The Stripe payment function has been verified with test visa card details and all transactions show up on the Stripe dashboard:
-- ![Stripe Test Payment](assets/readme_image/Stripe.PNG) 
-- Contact functionality is also functioning  - please note that the confirmation emails for reset are currently printing out in the terminal. As mentioned in future development section these will be directed to real inboxes.
+ ![Stripe Test Payment](assets/readme_image/Stripe.PNG) 
+- Contact functionality has also been tested  - please note that the confirmation emails for reset are currently printing out in the terminal. As mentioned in future development section these will be directed to real inboxes.
 - Wishlist functionality has been tested and is working correctly, a user can also add wishlist items to their cart.
 - Product reviews have been tested are working as they ought to. A logged in user can leave a review which will be sent for approval by the site admin. When logged in as admin you can approve or reject.
 - Blog comment functionality was tested and is working as it should. 
