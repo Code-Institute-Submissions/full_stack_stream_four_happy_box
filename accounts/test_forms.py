@@ -56,7 +56,4 @@ class TestAccountsForms(TestCase):
         self.assertFalse(form.is_valid())
         self.assertEqual(form.errors['email'], ['Email addresses must be unique.'])
     
-    def test_get_login(self):
-        page=self.client.get("/accounts/login")
-        self.assertEqual(page.status_code, 200)
-        self.assertTemplateUsed(page, "accounts/login.html", "base.html")
+   

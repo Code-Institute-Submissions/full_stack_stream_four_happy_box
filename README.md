@@ -1,6 +1,6 @@
 # Happy Box   [![Build Status](https://travis-ci.org/nikralave/full-stack-project.svg?branch=master)](https://travis-ci.org/nikralave/full-stack-project)
 
-## Fictional E-Commerce Website Built With Python's Django Framework
+## Fictional E-Commerce Website Built With Python's Django Framework Using a PostgreSQL
 
 This website is designed as to provide users with a full ecommerce site complete with authentication and Stripe payment functionality. The site also contains a blog where articles relating to the concept behind the products are displayed. 
 
@@ -68,19 +68,56 @@ The use of pink on navy on the navbar I feel sets a bold playful feel when you l
 
 - HTML5 
 - CSS3
+- [Fancybox](https://fancyapps.com/fancybox/3/ "Fancy Box Homepage") - used to display product images in a gallery
 - [Bootstrap 3](https://getbootstrap.com/docs/3.3/ "Bootstrap Homepage")  - used for responsive layout and clean navigation.
 - JavaScript  
 - [Jquery](https://jquery.com/Jquery "Jquery Homepage") - Bootstrap uses Jquery for some of its navigation features e.g. collapsable navigation for mobile devices. 
 - Python 3 
 - [Django 2 Framework](https://docs.djangoproject.com/en/2.1/ "Django Homepage")
-- [AWS](https://eu-west-1.console.aws.amazon.com/console/home?region=eu-west-1 "AWS Homepage") 
+- SQLite - local database
+- PostgreSQL - production database (served by Heroku)
+- [AWS](https://eu-west-1.console.aws.amazon.com/console/home?region=eu-west-1 "AWS Homepage") - static file hosting
 
 
 ## Testing & Deployment
 
-- Manual testing was carried out on this site.
-- All code used has been tested to ensure that everything is working as it ought to.
--  The only issues arising from the CSS code assessment from the official [Jigsaw Validator](https://jigsaw.w3.org/css-validator/ "Jigsaw Validator Homepage") are those contained in the Materialize CSS file linked to my project which is out of my control.
+#### Automated Testing
+Automated testing was done using Travis-CI.
+1. Coverage was tested by running the following at the command line:
+
+`$ sudo pip3 install coverage `
+
+`$ coverage run manage.py test (app name)`
+
+`$ coverage html`
+
+This will create a htmlcov folder.
+
+2. To view the percentage cover of your tests in the command line, run the following at the command line:
+
+`$ python3 manage.py test`
+
+`$ coverage report`
+
+3. To update the html coverage report run:
+
+`$ coverage html`
+
+Then open and run the index.html file in the "htmlcov" folder.
+
+I would like exapnd on my automated tests in the future.
+
+#### Manual Testing
+
+- All authorisation funcionality has been manually tested to ensure in working order for example sign up, log in, password reset - please note that the confirmation emails for reset are currently printing out in the terminal. As mentioned in future development section these will be directed to real inboxes.
+- Product purchasing functionality has been added. The Stripe payment function has been verified with test visa card details and all transactions show up on the Stripe dashboard:
+- ![Stripe Test Payment](assets/readme_image/Stripe.PNG) 
+- Contact functionality is also functioning  - please note that the confirmation emails for reset are currently printing out in the terminal. As mentioned in future development section these will be directed to real inboxes.
+- Wishlist functionality has been tested and is working correctly, a user can also add wishlist items to their cart.
+- Product reviews have been tested are working as they ought to. A logged in user can leave a review which will be sent for approval by the site admin. When logged in as admin you can approve or reject.
+- Blog comment functionality was tested and is working as it should. 
+- All links were tested to ensure working correctly & all external links are opening on a new tab.
+- All CSS code has passed the official [Jigsaw Validator](https://jigsaw.w3.org/css-validator/ "Jigsaw Validator Homepage")
 - [Cross Browser Testing](https://crossbrowsertesting.com/ "Cross Browser Testing Homepage")  was used to ensure that the site has been tested for viewing support across the following browsers:
   - Google Chrome
   - Opera
@@ -92,6 +129,7 @@ The use of pink on navy on the navbar I feel sets a bold playful feel when you l
   - [Responsinator](http://www.responsinator.com/ "Responsinator Homepage")
   - [Google Resizer](https://material.io/tools/resizer/ "Google Resizer Homepage")
   - [Mobile Test](http://mobiletest.me/ "Mobile test Homepage")
+- Along with the emulator tests above, the site has been tested on my own phone along with other physical devices to ensure all looks and works as it should. 
 
 #### Known Bugs
 
@@ -107,6 +145,13 @@ A number of relationships needed to be worked out in order for the site to funct
 
 The site has been deployed to be hosted on Heroku. (please see the live link above)
 
+Below are the deployment instructions:
+1. Navigate to your [Heroku](https://www.heroku.com/ "Heroku Homepage") dashboard,create a new app in Heroku (Europe). 
+2. In "Deploy" choose GitHub as the deployment method and below this connect to the GitHub repository of your project. 
+2. Initial deployment should be done manually. Upon successful deployment enable automatic deploys to allow deployment with each push to your repository.
+3. The requirements.txt contains all of the dependencies required to run the app.
+4. The Procfile communicates to Heroku how to run the app.
+5. Heroku Postgres is used as the server database and AWS S3 used to host static files. You will need to create your own access keys (as per installation below). You can generate a Django secret key [here](https://www.miniwebtool.com/django-secret-key-generator/ "Django Secret Key") Stripe secret keys will also need to be generated personally. These are all stored in Heroku config vars in the "Settings" tab.
 
 ### Installation
 

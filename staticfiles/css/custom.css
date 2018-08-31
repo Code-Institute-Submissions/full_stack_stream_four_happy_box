@@ -10,7 +10,7 @@ p {
 
 
 section {
-    min-height: 70vh;
+    min-height: 80vh;
 }
 
 /*Navigation*/
@@ -254,6 +254,10 @@ nav {
 
 /* Product Detail*/
 
+.cover_image {
+    padding: 2em;
+}
+
 .stars_and_reviews {
     color: #fdd519;
 }
@@ -461,6 +465,19 @@ footer {
 
 footer a {
    color: #ff98cb;  
+}
+
+
+footer a:link {
+    color: #ff98cb;   
+}
+
+footer a:visited {
+    color: #ff98cb; 
+} 
+
+a:active {
+      color: #ff98cb; 
 }
 
 footer a:hover {
