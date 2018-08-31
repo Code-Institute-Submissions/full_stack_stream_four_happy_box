@@ -61,7 +61,7 @@ The use of pink on navy on the navbar I feel sets a bold playful feel when you l
 #### Future Development
 
 - I intend to setup live email functionality with perhaps a program such as SendGrid.
-- I also intend on working on slug functionality to create absolute urls for SEO purposes.
+- I also intend on working on slug functionality to create absolute urls for SEO purposes. Slugs are currently included in my models but further development is needed to put them into production.
 - In addition an option of adding a personalised note with each box might be added.
 
 ### Technologies Used
