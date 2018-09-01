@@ -55,15 +55,15 @@ The use of pink on navy on the navbar I feel sets a bold playful feel when you l
   - Search - this app uses a simple Python function to search through all the products & render a filtered display of products or if no corresponding match renders a message with a link to all products.
   - Cart/Checkout - the cart app stores the item name, image, quantity and price of all products added to it and displays a cart total. The Checkout app then renders a form for a one-off Stripe payment.
   - Wishlist - this app stores the item name, image, quantity and price of all products added to the wishlist. A user can add items from here to the cart or delete from the wishlist if a user so wishes
-  - Reviews - if a user is logged in they can leave a review which will be attached to a particular product. A message will appear confirming that your review will appear if approved by the admin for the site. When logged in as admin you can approve or reject all product reviews.
-  - Contact - a user can fill out and send a contact form through this app and will receive a Django message confirming that their message has been sent and that they will get a response shortly.
-  - Blog - blog_posts.html displays all blog posts that have been created, either via Django's admin panel or via the form in blogpostform.html. A post consists of a title, content, image and tag. The words are truncated to show only 30 words on the main screen, so users must click into the blog post to read the entire thing (postdetail.html) Only the superuser/admin can add blog posts. Comments can be added by logged in users.
+  - Reviews - if a user is logged in they can leave a review which will be attached to a particular product.
+  - Contact - a user can fill out and send a contact form through this app and will receive a Django message confirming that their message has been sent and a confirmation email saying that they will get a response shortly.
+  - Blog - blog_posts.html displays all blog posts that have been created, either via Django's admin panel or via the form in blogpostform.html. A post consists of a title, content, image and tag. The words are truncated to show only 30 characters on the main screen, so users must click into the blog post to read the entire thing (postdetail.html) Only the superuser/admin can add blog posts. Comments can be added by logged in users. A message will appear confirming that your review will appear if approved by the admin for the site. When logged in as admin you can approve or reject all blog commentss.
+  - Email functionality to aid users to reset account passwords, also allows users to send messages through the contact page and sends users a confirmation of purchase email.
 
 #### Future Development
 
-- I intend to setup live email functionality with perhaps a program such as SendGrid.
-- I also intend on working on slug* functionality to create absolute URLs for SEO purposes. Slugs are currently included in my models, but further development is needed to put them into production. *A slug is part of a URL which identifies a particular page on a website in an easy to read form.
 - Currently when a user tries to add an item to the wishlist a second time it gives a warning message to prevent them from doing this. Perhaps in the future I will visually represent items already in the wishlist by marking them with a full heart icon at all times so that users don't have to click on them.
+- I also intend on working on slug* functionality to create absolute URLs for SEO purposes. Slugs are currently included in my models, but further development is needed to put them into production. *A slug is part of a URL which identifies a particular page on a website in an easy to read form.
 
 ### Technologies Used
 
@@ -78,6 +78,7 @@ The use of pink on navy on the navbar I feel sets a bold playful feel when you l
 - SQLite - local database
 - PostgreSQL - production database (served by Heroku)
 - [AWS](https://eu-west-1.console.aws.amazon.com/console/home?region=eu-west-1 "AWS Homepage") - static file hosting
+- [SendGrid](https://sendgrid.com/marketing/sendgrid-services-cro/ "SendGrid Homepage") - email service
 
 
 ## Testing & Deployment
@@ -110,13 +111,13 @@ I would like expand on my automated tests in the future.
 
 #### Manual Testing
 
-- All authorisation functionality has been manually tested to ensure in working order for example sign up, log in, password reset - please note that the confirmation emails for reset are currently printing out in the terminal. As mentioned in future development section these will be directed to real inboxes.
+- All authorisation functionality has been manually tested to ensure in working order for example sign up, log in, password reset.
 - Product purchasing functionality has been added. The Stripe payment function has been verified with test visa card details and all transactions show up on the Stripe dashboard:
  ![Stripe Test Payment](assets/readme_image/Stripe.PNG) 
-- Contact functionality has also been tested - please note that the confirmation emails for reset are currently printing out in the terminal. As mentioned in future development section these will be directed to real inboxes.
+- Contact functionality has also been tested - confirmation emails are sending to the user's inbox.
 - Wishlist functionality has been tested and is working correctly, a user can also add wishlist items to their cart.
-- Product reviews have been tested are working as they ought to. A logged in user can leave a review which will be sent for approval by the site admin. When logged in as admin you can approve or reject.
-- Blog comment functionality was tested and is working as it should. 
+- Product reviews have been tested are working as they ought to. 
+- Blog comment functionality was tested and is working as it should. A logged in user can leave a comment which will be sent for approval by the site admin. When logged in as admin you can approve or reject.
 - All links were tested to ensure working correctly & all external links are opening on a new tab.
 - All CSS code has passed the official [Jigsaw Validator](https://jigsaw.w3.org/css-validator/ "Jigsaw Validator Homepage")
 - [Cross Browser Testing](https://crossbrowsertesting.com/ "Cross Browser Testing Homepage")  was used to ensure that the site has been tested for viewing support across the following browsers:
@@ -130,11 +131,12 @@ I would like expand on my automated tests in the future.
   - [Responsinator](http://www.responsinator.com/ "Responsinator Homepage")
   - [Google Resizer](https://material.io/tools/resizer/ "Google Resizer Homepage")
   - [Mobile Test](http://mobiletest.me/ "Mobile test Homepage")
-- Along with the emulator tests above, the site has been tested on my own phone along with other physical devices to ensure all looks and works as it should. 
+  - These were only possible to test in Cloud9, as production produced this error in all cases. "Refused to display '<URL>' in a frame because it set 'X-Frame-Options' to 'sameorigin'." 
+- Along with the emulator tests above, the site has been tested on my own phone along with other physical devices to ensure all looks and works as it should. Because of the error mentinoed above, more testing was completed on physical devices to ensure no new bugs appeared in production.
 
 #### Known Bugs
 
-
+- There are no known bugs at present.
 
 ### Database/Static Files
 

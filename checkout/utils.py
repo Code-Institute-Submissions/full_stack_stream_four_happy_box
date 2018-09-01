@@ -36,7 +36,7 @@ def send_confirmation_email(email, username, items_and_total):
     message = render_to_string('checkout/text_confirmation_email.html', context)
     html_message = render_to_string('checkout/html_confirmation_email.html', context)
                 
-    subject = 'Thanks for buying our stuff!'
+    subject = 'Thanks for buying from Happy Box!'
     message = message
     from_email = settings.SYSTEM_EMAIL
     to_email = [email]
