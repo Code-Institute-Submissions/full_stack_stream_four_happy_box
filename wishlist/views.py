@@ -16,9 +16,12 @@ def add_to_wishlist(request):
     id = request.POST['id']
     quantity = 1
     wishlist = request.session.get('wishlist', {})
-    wishlist[id] = wishlist.get(id, 0) + quantity
-    request.session['wishlist'] = wishlist
-    messages.success(request, "You added to your wishlist!")
+    if wishlist.get(id, 0) == 0:
+        wishlist[id] = wishlist.get(id, 0) + quantity
+        request.session['wishlist'] = wishlist
+        messages.success(request, "You added to your wishlist!")
+    else:
+        messages.error(request, "Item is already on your wishlist!")
     return redirect(request.GET.get('next', 'home'))
 
 def add_selected_wishlist_items_to_cart(request):

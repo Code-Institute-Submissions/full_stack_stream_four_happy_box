@@ -4,6 +4,7 @@ from django.template import Context
 from django.template.loader import get_template
 from django.contrib import messages, auth
 from .forms import ContactForm
+from django.conf import settings
 
 def contact(request):
     form_class = ContactForm
@@ -24,15 +25,15 @@ def contact(request):
             }
             content = template.render(context)
             
-          
-            email = EmailMessage(
+
+            email_auto_response = EmailMessage(
                 "New contact form submission",
                 content,
                 "Happy Box" +'',
-                ['admin@example .com'],
-                headers = {'Reply-To': contact_email }
+                [contact_email],
+                headers = {'Reply-To': "admin@happybox.com"}
             )
-            email.send()
+            email_auto_response.send()
             messages.success(request, 'We have recieved your email & will get back to you as soon as possible!')
             return redirect('home')
 

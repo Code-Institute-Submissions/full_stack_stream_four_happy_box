@@ -21,7 +21,7 @@
     <div class=col-sm-4>
       <h2>{{product.name}}</h2>
       <h3>€{{product.price}} </h3>
-      {% if not in_wishlist %}
+     
       <form action="{% url 'add_to_wishlist' %}?next={{request.path}}" method="post">
         {% csrf_token %}
         <input type="hidden" name="id" value="{{product.id}}" />
@@ -31,19 +31,6 @@
             ADD TO WISHLIST
           </button>
       </form>
-      {% else %}
-      <div id="tooltip_remove" class="arrow_box">
-        <p>Remove from <a href="{% url 'view_wishlist' %}">Wishlist</a></p>
-      </div>
-      <form action="{% url 'remove_wishlist_item' product.id %}?next={{request.path}}" method="post" id="full_heart_form">
-        {% csrf_token %}
-        <button type="submit" class="btn">
-            <i class="far fa-heart" type="submit"></i>
-          </button>
-      </form>
-      {% endif %}
-
-
       <p class="card-text">Category: {{product.category}}</p>
       <p class="card-text">{{product.description}}</p>
       <h5>This Box Contains:</h5>
@@ -66,7 +53,7 @@
           <i class="far fa-star"></i>
           <i class="far fa-star"></i>
           <i class="far fa-star"></i> No reviews yet
-          <a>Leave a Review</a>
+          <a href="#review-list">Leave a Review</a>
         </p>
         {% endif %}
       </p>
