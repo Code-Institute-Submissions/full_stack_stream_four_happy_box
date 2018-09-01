@@ -5,6 +5,7 @@ from django.template.loader import get_template
 from django.contrib import messages, auth
 from .forms import ContactForm
 from django.conf import settings
+from django.template.loader import render_to_string
 
 def contact(request):
     form_class = ContactForm
@@ -25,15 +26,22 @@ def contact(request):
             }
             content = template.render(context)
             
+            subject = 'Thanks for getting in touch!'
+        
+            from_email = 'happyteam@happybox.com'
+            to_email = [contact_email]
 
-            email_auto_response = EmailMessage(
+            send_mail(subject,render_to_string('contact_template.txt', context),from_email,to_email,fail_silently=False)
+            
+          
+            email = EmailMessage(
                 "New contact form submission",
                 content,
                 "Happy Box" +'',
-                [contact_email],
-                headers = {'Reply-To': "admin@happybox.com"}
+                ['admin@example .com'],
+                headers = {'Reply-To': contact_email }
             )
-            email_auto_response.send()
+            email.send()
             messages.success(request, 'We have recieved your email & will get back to you as soon as possible!')
             return redirect('home')
 

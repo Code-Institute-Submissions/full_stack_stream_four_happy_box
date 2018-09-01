@@ -1,4 +1,4 @@
-# Happy Box   [![Build Status](https://travis-ci.org/nikralave/full-stack-project.svg?branch=master)](https://travis-ci.org/nikralave/full-stack-project)
+# Happy Box   [![Build Status](https://travis-ci.org/nikralave/full_stack_stream_four_happy_box.svg?branch=master)](https://travis-ci.org/nikralave/full_stack_stream_four_happy_box)
 
 ## Fictional E-Commerce Website Built With Python's Django Framework Using a PostgreSQL
 
@@ -16,7 +16,7 @@ Follow this link to view deployed version of this website https://full-stack-nik
 
 #### 1. Initial Planning 
 
-The planning commenced with pen and paper brainstorming and some competitor e-commerce website analysis. Here ideas for an e-commerce site were considered. Happiness, wellbeing and self-care are so topical in the world we live in today. We lead such busy lives that happiness is at times hard to achieve nowadays. Inspired by this topic and an idea that came to me while looking at an advertisement for motor breakdown assist the concept of "Happy Box" as a pick me up available on demand was born. 
+The planning commenced with pen and paper brainstorming and some competitor e-commerce website analysis. Here ideas for an e-commerce site were considered. Happiness, wellbeing and self-care are so topical in the world we live in today. We lead such busy lives that happiness is at times hard to achieve nowadays. Inspired by this topic, an idea that came to me while looking at an advertisement for motor breakdown assist the concept of "Happy Box" as a pick me up available on demand was born. 
 
 #### 2. User Stories
 
@@ -35,7 +35,7 @@ The following is a list of some user stories:
 
 #### 3. Wireframes
 
-After the initial planning stage, I developed these wireframes using [Balsamiq](https://www.balsamiq.com "Balsamiq Homepage"). At this point I fine tuned down my features and layout. There were some cosmetic adjustments during the development process but on a whole the original mockups were followed quite closely. All wireframes have been included in a file labelled "Wireframes" for project review.
+After the initial planning stage, I developed these wireframes using [Balsamiq](https://www.balsamiq.com "Balsamiq Homepage"). At this point I fine tuned down my features and layout. There were some cosmetic adjustments during the development process but on a whole the original mockups were followed quite closely. All wireframes have been included in a file labelled [wireframes](wireframes/) for project review.
 
 
 #### 4. Overall Look and Feel
@@ -62,8 +62,8 @@ The use of pink on navy on the navbar I feel sets a bold playful feel when you l
 #### Future Development
 
 - I intend to setup live email functionality with perhaps a program such as SendGrid.
-- I also intend on working on slug functionality to create absolute URLs for SEO purposes. Slugs are currently included in my models, but further development is needed to put them into production.
-- In addition, an option of adding a personalised note with each box might be added.
+- I also intend on working on slug* functionality to create absolute URLs for SEO purposes. Slugs are currently included in my models, but further development is needed to put them into production. *A slug is part of a URL which identifies a particular page on a website in an easy to read form.
+- Currently when a user tries to add an item to the wishlist a second time it gives a warning message to prevent them from doing this. Perhaps in the future I will visually represent items already in the wishlist by marking them with a full heart icon at all times so that users don't have to click on them.
 
 ### Technologies Used
 

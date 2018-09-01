@@ -1,5 +1,7 @@
 
 
+Hi there,
+
 Thank you for getting in touch. We have received your email and will get back to you as soon as possible.
 
 Contact Name:
@@ -8,5 +10,9 @@ Contact Name:
 Email:
 {{ contact_email }}
 
-Content:
+Comment:
 {{ form_content|safe|striptags }}
+
+Best wishes,
+
+The Happy Box Team
