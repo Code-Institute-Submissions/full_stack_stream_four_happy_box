@@ -66,10 +66,15 @@
           <label for="product_qty">QTY</label>
           <input class="form-control" id="product_qty" type="number" name="quantity" value="1" max="5" min="1" />
         </div>
-        <div class="col-xs-12 product_list_attribute">
+        <div class="col-xs-12 product_list_attribute browse">
           <input class="btn submit_button_list" type="submit" value="ADD TO CART" />
         </div>
       </form>
+      
+      <div class="col-xs-12 product_list_attribute">
+        <a href="{% url 'view_cart' %}" class="btn submit_button_list"> PROCEED TO CART <i class="fas fa-arrow-right"></i></a>
+      </div>
+
     </div>
   </div>
 </div>
