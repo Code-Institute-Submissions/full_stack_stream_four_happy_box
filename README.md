@@ -65,7 +65,8 @@ The use of pink on navy on the navbar I feel sets a bold playful feel when you l
 - Currently when a user tries to add an item to the wishlist a second time it gives a warning message to prevent them from doing this. Perhaps in the future I will visually represent items already in the wishlist by marking them with a full heart icon at all times so that users don't have to click on them.
 - I also intend on working on slug* functionality to create absolute URLs for SEO purposes. Slugs are currently included in my models, but further development is needed to put them into production. *A slug is part of a URL which identifies a particular page on a website in an easy to read form.
 
-### Technologies Used
+
+## Technologies Used
 
 - HTML5 
 - CSS3
